@@ -16,6 +16,7 @@
     --cream-card: #FFFDF8;
     --ink: #2A2320;
     --leaf: #4C7A5E;
+    --whatsapp-green: #25D366;
 
     --font-display: 'Baloo 2', sans-serif;
     --font-body: 'Work Sans', sans-serif;
@@ -92,26 +93,28 @@
     nav.open a { display: block; width: 100%; }
   }
 
-  /* ---------- HOME HERO SECTION ---------- */
+  /* ---------- LIGHT BRIGHT HOME HERO SECTION ---------- */
   .hero-section {
     width: 100%;
     padding: 120px 0;
-    background: linear-gradient(135deg, rgba(10, 50, 138, 0.92) 30%, rgba(31, 42, 68, 0.85)), url('https://lh3.googleusercontent.com/gps-cs-s/APNQkAHuQ4k7WHn5ZVWEQ_zuAl9cfnAFLKSlGK87Nu0586Di_h25RvF_G1lmGIflpPkH5gIOaa8E2If0y8EMwJ1WvgUbY8U3DpCfGCe5bTTENDg81-behJr_iJC2lk6jgefmBGgSNAnm=w1200') center/cover no-repeat;
-    border-bottom: 4px solid var(--gold-yellow);
-    color: #fff;
+    /* Soft semi-transparent white layout to reveal background images safely */
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.88) 30%, rgba(252, 246, 234, 0.82)), url('https://lh3.googleusercontent.com/gps-cs-s/APNQkAHuQ4k7WHn5ZVWEQ_zuAl9cfnAFLKSlGK87Nu0586Di_h25RvF_G1lmGIflpPkH5gIOaa8E2If0y8EMwJ1WvgUbY8U3DpCfGCe5bTTENDg81-behJr_iJC2lk6jgefmBGgSNAnm=w1200') center/cover no-repeat;
+    border-bottom: 4px solid var(--primary-blue);
+    color: var(--ink);
   }
   .hero-content { max-width: 750px; margin: 0 auto; text-align: center; }
   .hero-tag {
     font-family: var(--font-mono);
-    color: var(--gold-yellow);
+    color: var(--primary-blue);
     text-transform: uppercase;
     letter-spacing: 2px;
     font-size: 0.9rem;
     margin-bottom: 16px;
     display: inline-block;
-    background: rgba(255,255,255,0.1);
+    background: rgba(10, 50, 138, 0.08);
     padding: 4px 12px;
     border-radius: 4px;
+    font-weight: 600;
   }
   .hero-content h2 {
     font-family: var(--font-display);
@@ -119,13 +122,20 @@
     line-height: 1.12;
     font-weight: 800;
     margin-bottom: 20px;
-    text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+    color: var(--primary-blue);
   }
   .hero-content p {
     font-size: 1.25rem;
     margin-bottom: 36px;
-    color: #f0f2f5;
-    text-shadow: 0 1px 5px rgba(0,0,0,0.2);
+    color: var(--navy-soft);
+    font-weight: 500;
+  }
+
+  .cta-group {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    flex-wrap: wrap;
   }
 
   .action-btn {
@@ -139,12 +149,19 @@
     align-items: center;
     gap: 10px;
     border: none;
-    background: var(--gold-yellow);
-    color: var(--navy);
-    box-shadow: 0 4px 15px rgba(246,188,27,0.3);
+    background: var(--primary-blue);
+    color: #fff;
+    box-shadow: 0 4px 12px rgba(10,50,138,0.2);
     transition: all 0.2s;
   }
-  .action-btn:hover { background: #fff; transform: translateY(-2px); }
+  .action-btn:hover { background: var(--navy); transform: translateY(-2px); }
+
+  .action-btn.wa-btn {
+    background: var(--whatsapp-green);
+    box-shadow: 0 4px 12px rgba(37,211,102,0.3);
+  }
+  .action-btn.wa-btn:hover { background: #1ebd59; }
+  .action-btn.wa-btn svg { width: 18px; height: 18px; fill: currentColor; }
 
   @media (max-width: 960px) {
     .hero-content h2 { font-size: 2.6rem; }
@@ -195,24 +212,52 @@
     overflow: hidden; box-shadow: 0 5px 15px rgba(0,0,0,0.1);
   }
 
-  /* ---------- ABOUT US SECTION ---------- */
+  /* ---------- LIGHT BRIGHT ABOUT US SECTION ---------- */
   #about-us { 
-    background: linear-gradient(rgba(31, 42, 68, 0.85), rgba(15, 23, 42, 0.9)), url('https://lh3.googleusercontent.com/gps-cs-s/APNQkAF8E28pUYFV0KYkPUJ39nYv_MhzmvWhsQ-9BOLjga9oulyzuCPYRljNRMsLCJcP7AWUUqmFkFJG1KXqZjVzPJKpFsxxoetZmPrbBQWH3gW5LlODLnGLU9_MWEU2mPk2juoru15pciLUHz4=w1200') center/cover no-repeat;
-    color: #fff;
+    background: linear-gradient(rgba(255, 255, 255, 0.85), rgba(252, 246, 234, 0.85)), url('https://lh3.googleusercontent.com/gps-cs-s/APNQkAF8E28pUYFV0KYkPUJ39nYv_MhzmvWhsQ-9BOLjga9oulyzuCPYRljNRMsLCJcP7AWUUqmFkFJG1KXqZjVzPJKpFsxxoetZmPrbBQWH3gW5LlODLnGLU9_MWEU2mPk2juoru15pciLUHz4=w1200') center/cover no-repeat;
+    color: var(--ink);
+    border-top: 2px solid #E9DFC6;
   }
-  #about-us .section-head h2 { color: var(--gold-yellow); }
-  .about-box { background: rgba(255, 255, 255, 0.95); border: 3px dashed var(--primary-blue); padding: 40px; border-radius: 16px; max-width: 800px; margin: 0 auto; color: var(--ink); box-shadow: 0 10px 30px rgba(0,0,0,0.3); }
+  #about-us .section-head h2 { color: var(--primary-blue); }
+  .about-box { background: rgba(255, 255, 255, 0.94); border: 3px dashed var(--primary-blue); padding: 40px; border-radius: 16px; max-width: 800px; margin: 0 auto; color: var(--ink); box-shadow: 0 10px 25px rgba(0,0,0,0.05); }
   .about-box p { font-size: 1.1rem; color: var(--ink); margin-bottom: 15px; }
 
   /* ---------- FOOTER ---------- */
   footer { background: #0F172A; color: #94A3B8; padding: 40px 0; text-align: center; font-size: 0.9rem; }
   footer b { color: #fff; font-family: var(--font-display); font-size: 1.1rem; }
-  .footer-socials { display: flex; justify-content: center; align-items: center; gap: 16px; margin: 20px 0 10px; }
+  .footer-socials { display: flex; justify-content: center; gap: 16px; margin: 20px 0 10px; flex-wrap: wrap; }
   .footer-socials a { display: inline-flex; align-items: center; gap: 8px; color: #fff; background: rgba(255,255,255,0.1); padding: 10px 18px; border-radius: 30px; font-weight: 600; font-size: 0.85rem; transition: all 0.2s;}
   .footer-socials a svg { width: 16px; height: 16px; fill: currentColor; }
   .footer-socials a.insta-foot:hover { background: #E1306C; }
   .footer-socials a.fb-foot:hover { background: #1877F2; }
   .footer-socials a.map-foot:hover { background: var(--gold-yellow); color: var(--navy); }
+
+  /* ---------- FLOATING STICKY WHATSAPP BUTTON ---------- */
+  .whatsapp-sticky-badge {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background: var(--whatsapp-green);
+    color: #fff;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25);
+    z-index: 999;
+    transition: transform 0.2s, background-color 0.2s;
+  }
+  .whatsapp-sticky-badge:hover {
+    transform: scale(1.1);
+    background: #1ebd59;
+  }
+  .whatsapp-sticky-badge svg {
+    width: 32px;
+    height: 32px;
+    fill: currentColor;
+  }
 </style>
 </head>
 <body>
@@ -247,14 +292,20 @@
   </div>
 </header>
 
-<!-- CLEAN FULL-WIDTH HOME SCREEN HERO PANEL -->
+<!-- BRIGHT LIGHT HOME HERO PANEL -->
 <div class="hero-section" id="home">
   <div class="wrap">
     <div class="hero-content">
       <span class="hero-tag">Welcome to Sharma Stationery</span>
       <h2>Your Premium Hub for Every Page & Pencil.</h2>
       <p>Proudly serving Udhampur with quality school kits, competitive office stock supplies, comprehensive art supplies, and high-speed photocopy/print services.</p>
-      <a href="#products" class="action-btn">Explore Our Products ↓</a>
+      <div class="cta-group">
+        <a href="#products" class="action-btn">Explore Our Products ↓</a>
+        <a href="https://wa.me/919622128720" target="_blank" class="action-btn wa-btn">
+          <svg viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397.01 12.008.01c3.202.001 6.212 1.246 8.477 3.514 2.266 2.268 3.507 5.28 3.505 8.484-.004 6.657-5.34 11.997-11.953 11.997-2.005-.001-3.973-.502-5.717-1.456L0 24zm6.59-4.846c1.66.986 3.288 1.488 4.643 1.489 5.425-.001 9.84-4.417 9.843-9.843.002-2.63-1.012-5.101-2.859-6.95C16.37 1.99 13.9 1.974 12.01 1.974c-5.431 0-9.847 4.416-9.849 9.842-.001 1.702.463 3.342 1.426 4.765l-.999 3.648 3.76-.985zM17.47 15.39c-.334-.168-1.971-.974-2.275-1.084-.303-.11-.523-.165-.744.165-.22.33-.852 1.084-1.043 1.304-.19.22-.381.247-.715.08-.334-.168-1.409-.52-2.684-1.657-1.013-.903-1.696-2.018-1.895-2.353-.199-.335-.021-.517.146-.683.151-.15.334-.391.501-.586.167-.195.222-.335.334-.558.112-.222.056-.417-.028-.585-.084-.168-.743-1.792-1.019-2.459-.268-.644-.542-.556-.744-.566l-.635-.008c-.22 0-.578.082-.88.411-.303.33-1.157 1.131-1.157 2.76 0 1.628 1.186 3.2 1.352 3.421.165.222 2.332 3.563 5.651 5.001.789.341 1.404.545 1.884.697.794.253 1.517.217 2.088.131.637-.095 1.972-.806 2.247-1.584.275-.78.275-1.448.192-1.585-.084-.136-.303-.218-.637-.385z"/></svg>
+          Message on WhatsApp
+        </a>
+      </div>
     </div>
   </div>
 </div>
@@ -347,6 +398,11 @@
     <p style="margin-top:20px; font-size:0.8rem; opacity:0.6;">© <span id="year"></span> Sharma Stationery Market. All Rights Reserved.</p>
   </div>
 </footer>
+
+<!-- FLOATING WHATSAPP BADGE -->
+<a href="https://wa.me/919622128720" target="_blank" class="whatsapp-sticky-badge" title="Chat on WhatsApp">
+  <svg viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397.01 12.008.01c3.202.001 6.212 1.246 8.477 3.514 2.266 2.268 3.507 5.28 3.505 8.484-.004 6.657-5.34 11.997-11.953 11.997-2.005-.001-3.973-.502-5.717-1.456L0 24zm6.59-4.846c1.66.986 3.288 1.488 4.643 1.489 5.425-.001 9.84-4.417 9.843-9.843.002-2.63-1.012-5.101-2.859-6.95C16.37 1.99 13.9 1.974 12.01 1.974c-5.431 0-9.847 4.416-9.849 9.842-.001 1.702.463 3.342 1.426 4.765l-.999 3.648 3.76-.985zM17.47 15.39c-.334-.168-1.971-.974-2.275-1.084-.303-.11-.523-.165-.744.165-.22.33-.852 1.084-1.043 1.304-.19.22-.381.247-.715.08-.334-.168-1.409-.52-2.684-1.657-1.013-.903-1.696-2.018-1.895-2.353-.199-.335-.021-.517.146-.683.151-.15.334-.391.501-.586.167-.195.222-.335.334-.558.112-.222.056-.417-.028-.585-.084-.168-.743-1.792-1.019-2.459-.268-.644-.542-.556-.744-.566l-.635-.008c-.22 0-.578.082-.88.411-.303.33-1.157 1.131-1.157 2.76 0 1.628 1.186 3.2 1.352 3.421.165.222 2.332 3.563 5.651 5.001.789.341 1.404.545 1.884.697.794.253 1.517.217 2.088.131.637-.095 1.972-.806 2.247-1.584.275-.78.275-1.448.192-1.585-.084-.136-.303-.218-.637-.385z"/></svg>
+</a>
 
 <script>
 // Dynamic footer year sync
