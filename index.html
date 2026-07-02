@@ -3,19 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sharma Cement & Hardware Store | Udhampur</title>
-    <!-- FontAwesome for clean iconography -->
+    <title>Sharma Stationery Market | Kambal Danga</title>
+    <!-- FontAwesome for clean icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         /* --- Design System & Variables --- */
         :root {
-            --primary-navy: #0a192f;
-            --secondary-blue: #172a45;
-            --accent-gold: #f59e0b;
-            --accent-gold-hover: #d97706;
-            --text-light: #f8fafc;
-            --text-muted: #94a3b8;
-            --white: #ffffff;
+            --primary-blue: #1e3a8a;
+            --secondary-teal: #0d9488;
+            --accent-orange: #f97316;
+            --whatsapp-green: #25d366;
+            --bg-light: #f8fafc;
+            --card-bg: #ffffff;
+            --text-dark: #0f172a;
+            --text-muted: #64748b;
             --transition: all 0.3s ease;
         }
 
@@ -27,22 +28,21 @@
         }
 
         body {
-            background-color: var(--primary-navy);
-            color: var(--text-light);
+            background-color: var(--bg-light);
+            color: var(--text-dark);
             line-height: 1.6;
-            overflow-x: hidden;
         }
 
         /* --- Header & Navigation --- */
         header {
-            background-color: var(--secondary-blue);
+            background-color: var(--card-bg);
             position: fixed;
             width: 100%;
             top: 0;
             left: 0;
             z-index: 1000;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
-            border-bottom: 2px solid var(--accent-gold);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            border-bottom: 3px solid var(--secondary-teal);
         }
 
         .nav-container {
@@ -55,9 +55,9 @@
         }
 
         .logo {
-            font-size: 1.5rem;
+            font-size: 1.4rem;
             font-weight: 700;
-            color: var(--white);
+            color: var(--primary-blue);
             text-decoration: none;
             display: flex;
             align-items: center;
@@ -65,7 +65,7 @@
         }
 
         .logo span {
-            color: var(--accent-gold);
+            color: var(--secondary-teal);
         }
 
         .nav-menu {
@@ -76,15 +76,14 @@
         }
 
         .nav-link {
-            color: var(--text-light);
+            color: var(--text-dark);
             text-decoration: none;
             font-weight: 500;
             transition: var(--transition);
-            font-size: 1rem;
         }
 
         .nav-link:hover, .nav-link.active {
-            color: var(--accent-gold);
+            color: var(--secondary-teal);
         }
 
         .hamburger {
@@ -92,16 +91,15 @@
             cursor: pointer;
             background: none;
             border: none;
-            color: var(--text-light);
+            color: var(--text-dark);
             font-size: 1.5rem;
         }
 
         /* --- Hero Section --- */
         .hero {
             padding: 10rem 2rem 6rem;
-            background: linear-gradient(135deg, var(--primary-navy) 40%, var(--secondary-blue) 100%);
+            background: linear-gradient(135deg, rgba(30, 58, 138, 0.05) 0%, rgba(13, 148, 136, 0.05) 100%);
             text-align: center;
-            position: relative;
         }
 
         .hero-content {
@@ -109,49 +107,56 @@
             margin: 0 auto;
         }
 
-        .hero-badge {
-            background-color: rgba(245, 158, 11, 0.1);
-            color: var(--accent-gold);
-            padding: 0.5rem 1.5rem;
-            border-radius: 50px;
-            font-size: 0.875rem;
-            font-weight: 600;
-            display: inline-block;
-            margin-bottom: 1.5rem;
-            border: 1px solid rgba(245, 158, 11, 0.3);
-        }
-
         .hero h1 {
             font-size: 3rem;
-            font-weight: 800;
+            color: var(--primary-blue);
             margin-bottom: 1.5rem;
-            line-height: 1.2;
+            font-weight: 800;
         }
 
         .hero p {
             color: var(--text-muted);
-            font-size: 1.25rem;
+            font-size: 1.2rem;
             margin-bottom: 2.5rem;
         }
 
+        .cta-group {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
         .cta-btn {
-            background-color: var(--accent-gold);
-            color: var(--primary-navy);
+            background-color: var(--secondary-teal);
+            color: white;
             padding: 0.75rem 2rem;
-            border-radius: 6px;
+            border-radius: 50px;
             font-weight: 600;
             text-decoration: none;
             transition: var(--transition);
-            display: inline-block;
-            box-shadow: 0 4px 15px rgba(245, 158, 11, 0.3);
+            box-shadow: 0 4px 10px rgba(13, 148, 136, 0.2);
         }
 
         .cta-btn:hover {
-            background-color: var(--accent-gold-hover);
+            background-color: #0f766e;
             transform: translateY(-2px);
         }
 
-        /* --- Sections Core Layout --- */
+        .whatsapp-btn {
+            background-color: var(--whatsapp-green);
+            box-shadow: 0 4px 10px rgba(37, 211, 102, 0.2);
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .whatsapp-btn:hover {
+            background-color: #1ebd56;
+            transform: translateY(-2px);
+        }
+
+        /* --- Global Sections Core Layout --- */
         section {
             padding: 5rem 2rem;
             max-width: 1200px;
@@ -165,227 +170,143 @@
 
         .section-header h2 {
             font-size: 2.25rem;
-            font-weight: 700;
-            margin-bottom: 1rem;
-            position: relative;
-            display: inline-block;
+            color: var(--primary-blue);
+            margin-bottom: 0.5rem;
         }
 
-        .section-header h2::after {
-            content: '';
-            position: absolute;
-            width: 60px;
-            height: 3px;
-            background-color: var(--accent-gold);
-            bottom: -10px;
-            left: 50%;
-            transform: translateX(-50%);
-        }
-
-        /* --- Products Grid --- */
-        .products-grid {
+        /* --- Products & Services Grid --- */
+        .grid-layout {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 2rem;
         }
 
-        .product-card {
-            background-color: var(--secondary-blue);
+        .card {
+            background-color: var(--card-bg);
             border-radius: 12px;
-            overflow: hidden;
-            border: 1px solid rgba(255, 255, 255, 0.05);
+            padding: 2.5rem 1.5rem;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+            border: 1px solid rgba(0,0,0,0.04);
             transition: var(--transition);
         }
 
-        .product-card:hover {
+        .card:hover {
             transform: translateY(-5px);
-            border-color: rgba(245, 158, 11, 0.3);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
         }
 
-        .product-img-box {
-            height: 220px;
-            background-color: rgba(0,0,0,0.2);
+        .icon-box {
+            width: 70px;
+            height: 70px;
+            background-color: rgba(13, 148, 136, 0.1);
+            color: var(--secondary-teal);
+            border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            color: var(--text-muted);
-            border-bottom: 2px solid rgba(255, 255, 255, 0.05);
+            margin: 0 auto 1.5rem;
+            font-size: 1.75rem;
         }
 
-        .product-info {
-            padding: 1.5rem;
-        }
-
-        .product-info h3 {
-            font-size: 1.25rem;
-            margin-bottom: 0.5rem;
-            color: var(--white);
-        }
-
-        .product-info p {
-            color: var(--text-muted);
-            font-size: 0.95rem;
+        .card h3 {
+            font-size: 1.3rem;
             margin-bottom: 1rem;
+            color: var(--primary-blue);
         }
 
-        .product-features {
-            list-style: none;
-            font-size: 0.85rem;
-            color: var(--accent-gold);
-        }
-
-        .product-features li {
-            margin-bottom: 0.25rem;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        /* --- Feedback Portal --- */
-        .portal-wrapper {
-            background-color: var(--secondary-blue);
-            border-radius: 16px;
-            padding: 3rem;
-            max-width: 700px;
-            margin: 0 auto;
-            border: 1px solid rgba(255, 255, 255, 0.05);
-        }
-
-        .feedback-form {
-            display: flex;
-            flex-direction: column;
-            gap: 1.5rem;
-        }
-
-        .form-group {
-            display: flex;
-            flex-direction: column;
-            gap: 0.5rem;
-        }
-
-        .form-group label {
-            font-size: 0.95rem;
-            font-weight: 500;
-            color: var(--white);
-        }
-
-        .form-control {
-            background-color: var(--primary-navy);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            padding: 0.75rem 1rem;
-            border-radius: 6px;
-            color: var(--text-light);
-            font-size: 1rem;
-            transition: var(--transition);
-        }
-
-        .form-control:focus {
-            outline: none;
-            border-color: var(--accent-gold);
-        }
-
-        .star-rating {
-            display: flex;
-            gap: 10px;
-            font-size: 1.5rem;
+        .card p {
             color: var(--text-muted);
-            margin: 0.5rem 0;
+            font-size: 0.95rem;
         }
 
-        .star-rating i {
-            cursor: pointer;
-            transition: var(--transition);
-        }
-
-        .star-rating i.active {
-            color: var(--accent-gold);
-        }
-
-        .submit-btn {
-            background-color: var(--accent-gold);
-            color: var(--primary-navy);
-            border: none;
-            padding: 1rem;
-            border-radius: 6px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: var(--transition);
-            font-size: 1rem;
-        }
-
-        .submit-btn:hover {
-            background-color: var(--accent-gold-hover);
-        }
-
-        /* --- Contact & Location Maps --- */
-        .contact-layout {
+        /* --- Info & Contact System --- */
+        .contact-container {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 3rem;
-            align-items: start;
+            background-color: var(--card-bg);
+            padding: 3rem;
+            border-radius: 16px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.02);
         }
 
-        .contact-info-panel {
+        .info-list {
             display: flex;
             flex-direction: column;
             gap: 2rem;
         }
 
-        .info-item {
+        .info-card {
             display: flex;
-            gap: 1rem;
+            gap: 1.25rem;
             align-items: flex-start;
         }
 
-        .info-icon {
-            background-color: rgba(245, 158, 11, 0.1);
-            color: var(--accent-gold);
-            width: 45px;
-            height: 45px;
-            border-radius: 8px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.25rem;
-            flex-shrink: 0;
+        .info-icon-small {
+            color: var(--secondary-teal);
+            font-size: 1.5rem;
+            margin-top: 0.25rem;
         }
 
-        .info-text h4 {
+        .info-details h4 {
             font-size: 1.1rem;
+            color: var(--primary-blue);
             margin-bottom: 0.25rem;
         }
 
-        .info-text p {
+        .info-details p {
             color: var(--text-muted);
         }
 
-        .map-container {
-            width: 100%;
-            height: 350px;
-            background-color: var(--secondary-blue);
+        .map-box {
             border-radius: 12px;
             overflow: hidden;
-            border: 1px solid rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(0,0,0,0.05);
+            height: 320px;
         }
 
-        .map-container iframe {
+        .map-box iframe {
             width: 100%;
             height: 100%;
             border: none;
         }
 
-        /* --- Footer --- */
+        /* --- Footer Layout --- */
         footer {
-            background-color: #050c16;
-            padding: 2rem;
+            background-color: var(--primary-blue);
+            color: white;
+            padding: 3rem 2rem 2rem;
             text-align: center;
-            font-size: 0.9rem;
-            color: var(--text-muted);
-            border-top: 1px solid rgba(255, 255, 255, 0.05);
         }
 
-        /* --- Mobile Responsiveness Responsive Adjustments --- */
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .social-icon {
+            color: white;
+            font-size: 1.5rem;
+            transition: var(--transition);
+        }
+
+        .social-icon:hover {
+            color: var(--accent-orange);
+        }
+        
+        .social-icon.wa:hover {
+            color: var(--whatsapp-green);
+        }
+
+        footer p {
+            font-size: 0.9rem;
+            color: rgba(255,255,255,0.7);
+        }
+
+        /* --- Mobile Breakpoints Navigation CSS --- */
         @media (max-width: 768px) {
             .hamburger {
                 display: block;
@@ -393,252 +314,174 @@
 
             .nav-menu {
                 position: fixed;
-                top: 70px;
-                left: -100%;
-                width: 100%;
-                height: calc(100vh - 70px);
-                background-color: var(--secondary-blue);
+                top: 65px;
+                right: -100%;
+                width: 80%;
+                max-width: 300px;
+                height: calc(100vh - 65px);
+                background-color: var(--card-bg);
                 flex-direction: column;
+                align-items: flex-start;
                 padding: 3rem 2rem;
-                gap: 2.5rem;
+                gap: 2rem;
                 transition: var(--transition);
-                box-shadow: inset 0 10px 20px rgba(0,0,0,0.2);
+                box-shadow: -5px 5px 15px rgba(0,0,0,0.05);
             }
 
             .nav-menu.active {
-                left: 0;
+                right: 0;
             }
 
             .hero h1 {
                 font-size: 2.25rem;
             }
 
-            .portal-wrapper {
-                padding: 1.5rem;
+            .cta-group {
+                flex-direction: column;
+                align-items: center;
+                gap: 1rem;
             }
 
-            .contact-layout {
+            .contact-container {
                 grid-template-columns: 1fr;
-                gap: 2.5rem;
+                padding: 1.5rem;
             }
         }
     </style>
 </head>
 <body>
 
-    <!-- Header Navigation -->
+    <!-- Header Navigation Section -->
     <header>
         <div class="nav-container">
-            <a href="#" class="logo"><i class="fa-solid fa-trowel-bricks text-gold"></i> Sharma <span>Store</span></a>
-            <button class="hamburger" id="menu-toggle"><i class="fa-solid fa-bars"></i></button>
-            <ul class="nav-menu" id="nav-links">
+            <a href="#" class="logo"><i class="fa-solid fa-pen-fancy"></i> Sharma <span>Stationery</span></a>
+            <button class="hamburger" id="hamburger-btn"><i class="fa-solid fa-bars"></i></button>
+            <ul class="nav-menu" id="nav-menu-links">
                 <li><a href="#" class="nav-link active">Home</a></li>
-                <li><a href="#products" class="nav-link">Products</a></li>
-                <li><a href="#feedback" class="nav-link">Feedback Portal</a></li>
-                <li><a href="#contact" class="nav-link">Contact Us</a></li>
+                <li><a href="#inventory" class="nav-link">Inventory</a></li>
+                <li><a href="#about-location" class="nav-link">Location</a></li>
             </ul>
         </div>
     </header>
 
-    <!-- Hero Showcase Section -->
+    <!-- Main Hero Brand Statement Section -->
     <section class="hero">
         <div class="hero-content">
-            <div class="hero-badge">Premium Building Materials</div>
-            <h1>Your Trusted Partner in Construction & Hardware</h1>
-            <p>Supplying high-grade cement, foundational structural steel TMT bars, and durable hardware solutions directly to your job site in Udhampur.</p>
-            <a href="#products" class="cta-btn">Explore Materials</a>
-        </div>
-    </section>
-
-    <!-- Products Grid Catalog -->
-    <section id="products">
-        <div class="section-header">
-            <h2>Our Core Offerings</h2>
-            <p style="color: var(--text-muted);">Industry standard structural materials engineered for resilience.</p>
-        </div>
-        <div class="products-grid">
-            <!-- Premium Cement Card -->
-            <div class="product-card">
-                <div class="product-img-box">
-                    <i class="fa-solid fa-cubes-stacked fa-4x"></i>
-                </div>
-                <div class="product-info">
-                    <h3>High-Grade Cement</h3>
-                    <p>Premium OPC & PPC options optimized for heavy structural casting and long-lasting plastering projects.</p>
-                    <ul class="product-features">
-                        <li><i class="fa-solid fa-circle-check"></i> High early strength varieties</li>
-                        <li><i class="fa-solid fa-circle-check"></i> Enhanced weather resistance</li>
-                    </ul>
-                </div>
-            </div>
-            <!-- Structural TMT Bars Card -->
-            <div class="product-card">
-                <div class="product-img-box">
-                    <i class="fa-solid fa-bars-staggered fa-4x"></i>
-                </div>
-                <div class="product-info">
-                    <h3>Structural TMT Bars</h3>
-                    <p>Corrosion-resistant steel reinforcement bars providing outstanding ductility and seismic safety structural loads.</p>
-                    <ul class="product-features">
-                        <li><i class="fa-solid fa-circle-check"></i> High fatigue framework limits</li>
-                        <li><i class="fa-solid fa-circle-check"></i> Excellent bonding compatibility</li>
-                    </ul>
-                </div>
-            </div>
-            <!-- Robust Industrial Hardware Card -->
-            <div class="product-card">
-                <div class="product-img-box">
-                    <i class="fa-solid fa-screwdriver-wrench fa-4x"></i>
-                </div>
-                <div class="product-info">
-                    <h3>Industrial Hardware</h3>
-                    <p>A comprehensive line of mechanical fasteners, specialized structural tools, and durable installation accessories.</p>
-                    <ul class="product-features">
-                        <li><i class="fa-solid fa-circle-check"></i> Premium grade finishes</li>
-                        <li><i class="fa-solid fa-circle-check"></i> Complete operational sizing</li>
-                    </ul>
-                </div>
+            <h1>Premium Educational & Office Supplies</h1>
+            <p>Your comprehensive neighborhood partner for premium school supplies, academic utilities, professional office tools, and high-speed photocopying services in Kambal Danga.</p>
+            <div class="cta-group">
+                <a href="#inventory" class="cta-btn">View Inventory Hub</a>
+                <!-- Integrated WhatsApp target API button -->
+                <a href="https://wa.me/916005331055?text=Hello!%20I%20have%20an%20inquiry%20regarding%20stationery/photocopy%20services." target="_blank" class="cta-btn whatsapp-btn">
+                    <i class="fa-brands fa-whatsapp"></i> Chat on WhatsApp
+                </a>
             </div>
         </div>
     </section>
 
-    <!-- Feedback Entry Portal -->
-    <section id="feedback">
+    <!-- Inventory & Services Grid Section -->
+    <section id="inventory">
         <div class="section-header">
-            <h2>Customer Feedback Portal</h2>
-            <p style="color: var(--text-muted);">We continually refine our provisioning based on client metrics.</p>
+            <h2>Our Specialized Offerings</h2>
+            <p style="color: var(--text-muted)">Handpicked utility supplies to optimize your workflow and learning environments.</p>
         </div>
-        <div class="portal-wrapper">
-            <form class="feedback-form" id="customer-feedback-form">
-                <div class="form-group">
-                    <label for="customer-name">Full Name</label>
-                    <input type="text" id="customer-name" class="form-control" placeholder="John Doe" required>
-                </div>
-                <div class="form-group">
-                    <label>Experience Assessment Rating</label>
-                    <div class="star-rating" id="rating-stars">
-                        <i class="fa-solid fa-star" data-value="1"></i>
-                        <i class="fa-solid fa-star" data-value="2"></i>
-                        <i class="fa-solid fa-star" data-value="3"></i>
-                        <i class="fa-solid fa-star" data-value="4"></i>
-                        <i class="fa-solid fa-star" data-value="5"></i>
+        <div class="grid-layout">
+            <!-- Item Category 1 -->
+            <div class="card">
+                <div class="icon-box"><i class="fa-solid fa-book-open"></i></div>
+                <h3>School & Office Supplies</h3>
+                <p>Premium notebooks, high-grade folders, precision structural geometry assets, and dynamic writing pens for academic success.</p>
+            </div>
+            <!-- Item Category 2 -->
+            <div class="card">
+                <div class="icon-box"><i class="fa-solid fa-palette"></i></div>
+                <h3>Art & Craft Materials</h3>
+                <p>Vibrant canvas arrays, highly Pigmented acrylic mediums, fine sketching drawing items, and craft construction tools for creative visions.</p>
+            </div>
+            <!-- Item Category 3 -->
+            <div class="card">
+                <div class="icon-box"><i class="fa-solid fa-print"></i></div>
+                <h3>Photocopy & Digital Prints</h3>
+                <p>Heavy-duty precision black-and-white copy jobs, full spectrum colorful documents, instant lamination sealing, and document sorting services.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Business Information & Interactive Map Section -->
+    <section id="about-location">
+        <div class="section-header">
+            <h2>Visit Our Market Location</h2>
+            <p style="color: var(--text-muted)">Stop by to look over our stock or complete your document operations.</p>
+        </div>
+        <div class="contact-container">
+            <div class="info-list">
+                <!-- Info block item 1 -->
+                <div class="info-card">
+                    <i class="fa-solid fa-location-dot info-icon-small"></i>
+                    <div class="info-details">
+                        <h4>Store Coordinates</h4>
+                        <p>Kambal Danga, Udhampur, Jammu & Kashmir</p>
                     </div>
                 </div>
-                <div class="form-group">
-                    <label for="feedback-msg">Detailed Experience Summary</label>
-                    <textarea id="feedback-msg" class="form-control" rows="4" placeholder="Share your experience working with us..." required></textarea>
-                </div>
-                <button type="submit" class="submit-btn">File Verified Record</button>
-            </form>
-        </div>
-    </section>
-
-    <!-- Contact & Location Module -->
-    <section id="contact">
-        <div class="section-header">
-            <h2>Contact & Coordinates</h2>
-            <p style="color: var(--text-muted);">Reach out directly or visit our physical retail layout.</p>
-        </div>
-        <div class="contact-layout">
-            <div class="contact-info-panel">
-                <div class="info-item">
-                    <div class="info-icon"><i class="fa-solid fa-location-dot"></i></div>
-                    <div class="info-text">
-                        <h4>Retail Yard Location</h4>
-                        <p>Main Market Road, Udhampur, Jammu & Kashmir</p>
+                <!-- Info block item 2 -->
+                <div class="info-card">
+                    <i class="fa-solid fa-phone info-icon-small"></i>
+                    <div class="info-details">
+                        <h4>WhatsApp / Call</h4>
+                        <p>+91 60053 31055</p>
                     </div>
                 </div>
-                <div class="info-item">
-                    <div class="info-icon"><i class="fa-solid fa-clock"></i></div>
-                    <div class="info-text">
+                <!-- Info block item 3 -->
+                <div class="info-card">
+                    <i class="fa-solid fa-clock info-icon-small"></i>
+                    <div class="info-details">
                         <h4>Hours of Operation</h4>
-                        <p>Monday - Saturday: 09:00 AM - 07:00 PM</p>
-                    </div>
-                </div>
-                <div class="info-item">
-                    <div class="info-icon"><i class="fa-solid fa-envelope"></i></div>
-                    <div class="info-text">
-                        <h4>Business Communication</h4>
-                        <p>info@sharmacements.com</p>
+                        <p>Monday - Saturday: 08:30 AM - 08:00 PM</p>
                     </div>
                 </div>
             </div>
-            <!-- Embedded Google Map Component -->
-            <div class="map-container">
-                <!-- Replace 'q=Udhampur' parameter with your exact Google Business Profile share coordinates link if needed -->
-                <iframe src="https://maps.google.com/maps?q=Udhampur&t=&z=13&ie=UTF8&iwloc=&output=embed" allowfullscreen="" loading="lazy"></iframe>
+            <!-- Embedded Google Maps Interactive API Layout -->
+            <div class="map-box">
+                <iframe src="https://maps.google.com/maps?q=Kambal%20Danga,%20Udhampur&t=&z=14&ie=UTF8&iwloc=&output=embed" allowfullscreen="" loading="lazy"></iframe>
             </div>
         </div>
     </section>
 
-    <!-- Footer Copyright Block -->
+    <!-- Shared Footer Segment with Social Anchors -->
     <footer>
-        <p>&copy; 2026 Sharma Cement & Hardware Store. All operational rights reserved.</p>
+        <div class="social-links">
+            <a href="https://wa.me/916005331055" target="_blank" class="social-icon wa"><i class="fa-brands fa-whatsapp"></i></a>
+            <a href="#" class="social-icon"><i class="fa-brands fa-facebook"></i></a>
+            <a href="#" class="social-icon"><i class="fa-brands fa-instagram"></i></a>
+        </div>
+        <p>&copy; 2026 Sharma Stationery Market. All production workflows reserved.</p>
     </footer>
 
-    <!-- Interactive Behavior JavaScript Handling -->
+    <!-- Frontend Interactive Javascript Logic -->
     <script>
-        // Responsive Menu Toggle System
-        const menuToggle = document.getElementById('menu-toggle');
-        const navLinks = document.getElementById('nav-links');
+        const hamburgerBtn = document.getElementById('hamburger-btn');
+        const navMenuLinks = document.getElementById('nav-menu-links');
 
-        menuToggle.addEventListener('click', () => {
-            navLinks.classList.toggle('active');
-            const icon = menuToggle.querySelector('i');
-            if(navLinks.classList.contains('active')) {
-                icon.classList.replace('fa-bars', 'fa-xmark');
+        // Toggle mobile responsive sidebar menu view
+        hamburgerBtn.addEventListener('click', () => {
+            navMenuLinks.classList.toggle('active');
+            const toggleIcon = hamburgerBtn.querySelector('i');
+            if (navMenuLinks.classList.contains('active')) {
+                toggleIcon.classList.replace('fa-bars', 'fa-xmark');
             } else {
-                icon.classList.replace('fa-xmark', 'fa-bars');
+                toggleIcon.classList.replace('fa-xmark', 'fa-bars');
             }
         });
 
-        // Close mobile navbar on selecting anchor link links
-        document.querySelectorAll('.nav-link').forEach(link => {
-            link.addEventListener('click', () => {
-                navLinks.classList.remove('active');
-                document.getElementById('menu-toggle').querySelector('i').classList.replace('fa-xmark', 'fa-bars');
+        // Safe auto-collapse on navigating via sub anchor choices
+        document.querySelectorAll('.nav-link').forEach(anchorSelection => {
+            anchorSelection.addEventListener('click', () => {
+                navMenuLinks.classList.remove('active');
+                hamburgerBtn.querySelector('i').classList.replace('fa-xmark', 'fa-bars');
                 
-                document.querySelectorAll('.nav-link').forEach(nl => nl.classList.remove('active'));
-                link.classList.add('active');
+                document.querySelectorAll('.nav-link').forEach(linkItem => linkItem.classList.remove('active'));
+                anchorSelection.classList.add('active');
             });
-        });
-
-        // Client Interactive Evaluation Rating Logic
-        const stars = document.querySelectorAll('#rating-stars i');
-        let chosenRating = 0;
-
-        stars.forEach(star => {
-            star.addEventListener('click', () => {
-                chosenRating = star.getAttribute('data-value');
-                updateStars(chosenRating);
-            });
-        });
-
-        function updateStars(ratingValue) {
-            stars.forEach(star => {
-                if(star.getAttribute('data-value') <= ratingValue) {
-                    star.classList.add('active');
-                } else {
-                    star.classList.remove('active');
-                }
-            });
-        }
-
-        // Form Submit Pipeline Interception
-        document.getElementById('customer-feedback-form').addEventListener('submit', function(e) {
-            e.preventDefault();
-            if(chosenRating === 0) {
-                alert('Please provide a star rating experience score before submitting.');
-                return;
-            }
-            
-            const clientName = document.getElementById('customer-name').value;
-            alert(`Thank you, ${clientName}! Your feedback has been simulated locally. For active ranking optimization, remember you can guide users to submit directly to your Google Business Profile URL.`);
-            
-            // Clear input fields
-            this.reset();
-            chosenRating = 0;
-            updateStars(0);
         });
     </script>
 </body>
