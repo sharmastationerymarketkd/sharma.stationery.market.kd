@@ -54,11 +54,12 @@
             gap: 15px;
             text-decoration: none;
             color: inherit;
+            cursor: pointer;
         }
 
         .logo-img {
-            width: 70px;
-            height: 70px;
+            width: 75px;
+            height: 75px;
             object-fit: cover;
             border-radius: 50%;
             border: 2px solid var(--accent-color);
@@ -79,7 +80,7 @@
         nav ul {
             display: flex;
             list-style: none;
-            gap: 20px;
+            gap: 15px;
         }
 
         nav ul li a {
@@ -100,7 +101,7 @@
         /* Core Section Multi-page handling */
         .page-section {
             display: none;
-            animation: fadeIn 0.5s ease-in-out forwards;
+            animation: fadeIn 0.4s ease-in-out forwards;
         }
 
         .page-section.active {
@@ -116,20 +117,19 @@
         .container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 60px 20px;
+            padding: 50px 20px;
         }
 
         .section-title {
             text-align: center;
-            font-size: 2.5rem;
+            font-size: 2.3rem;
             margin-bottom: 40px;
             color: var(--secondary-color);
-            position: relative;
         }
 
         .section-title::after {
             content: '';
-            width: 80px;
+            width: 70px;
             height: 4px;
             background: var(--primary-color);
             display: block;
@@ -139,20 +139,29 @@
 
         /* Home View styles */
         .hero {
-            background: linear-gradient(rgba(26, 66, 138, 0.85), rgba(214, 34, 38, 0.85)), url('image_6f815a.png') no-repeat center center/cover;
+            background: linear-gradient(rgba(26, 66, 138, 0.9), rgba(214, 34, 38, 0.85)), url('image_6f815a.png') no-repeat center center/cover;
             color: white;
-            padding: 100px 20px;
+            padding: 90px 20px;
             text-align: center;
         }
 
-        .hero h2 {
-            font-size: 3rem;
+        .hero-logo {
+            width: 140px;
+            height: 140px;
+            border-radius: 50%;
+            border: 4px solid white;
             margin-bottom: 20px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+        }
+
+        .hero h2 {
+            font-size: 2.8rem;
+            margin-bottom: 15px;
             font-weight: 700;
         }
 
         .hero p {
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             margin-bottom: 30px;
             max-width: 700px;
             margin-left: auto;
@@ -163,18 +172,20 @@
             display: inline-block;
             background: var(--accent-color);
             color: var(--dark-color);
-            padding: 12px 30px;
+            padding: 12px 35px;
             font-weight: 700;
             text-decoration: none;
             border-radius: 30px;
             transition: 0.3s;
             border: none;
             cursor: pointer;
+            font-size: 1rem;
         }
 
         .btn:hover {
             transform: scale(1.05);
             background: #e2a50a;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
         }
 
         /* Features Section */
@@ -182,7 +193,7 @@
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 30px;
-            margin-top: 40px;
+            margin-top: 20px;
         }
 
         .feature-card {
@@ -200,6 +211,31 @@
             margin-bottom: 15px;
         }
 
+        /* Category Filter Tabs */
+        .category-tabs {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 35px;
+            flex-wrap: wrap;
+        }
+
+        .tab-btn {
+            background: #e8f0fe;
+            color: var(--secondary-color);
+            border: none;
+            padding: 10px 24px;
+            border-radius: 20px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .tab-btn.active, .tab-btn:hover {
+            background: var(--secondary-color);
+            color: white;
+        }
+
         /* Products Grid */
         .products-grid {
             display: grid;
@@ -211,20 +247,36 @@
             background: white;
             border-radius: 12px;
             overflow: hidden;
-            box-shadow: 0 6px 18px rgba(0,0,0,0.08);
-            transition: transform 0.3s;
+            box-shadow: 0 6px 18px rgba(0,0,0,0.06);
+            transition: transform 0.3s, display 0.3s;
             display: flex;
             flex-direction: column;
         }
 
         .product-card:hover {
             transform: translateY(-8px);
+            box-shadow: 0 12px 25px rgba(0,0,0,0.12);
+        }
+
+        .product-img-wrapper {
+            width: 100%;
+            height: 300px;
+            background: #f5f5f5;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
         }
 
         .product-img {
             width: 100%;
-            height: 280px;
+            height: 100%;
             object-fit: cover;
+            transition: transform 0.5s;
+        }
+
+        .product-card:hover .product-img {
+            transform: scale(1.05);
         }
 
         .product-info {
@@ -237,23 +289,25 @@
         }
 
         .product-tag {
-            background: #e8f0fe;
-            color: var(--secondary-color);
+            background: #fff1f2;
+            color: var(--primary-color);
             font-size: 0.75rem;
             font-weight: bold;
-            padding: 4px 12px;
+            padding: 4px 14px;
             border-radius: 20px;
             display: inline-block;
-            margin-bottom: 10px;
+            margin-bottom: 12px;
             align-self: center;
+            text-transform: uppercase;
         }
 
         .product-info h3 {
-            font-size: 1.1rem;
+            font-size: 1.15rem;
             margin-bottom: 10px;
+            color: #333;
         }
 
-        /* Contact Page Grid */
+        /* Contact & Forms */
         .contact-wrapper {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
@@ -275,22 +329,23 @@
         }
 
         .info-item i {
-            font-size: 1.5rem;
+            font-size: 1.3rem;
             color: var(--primary-color);
-            background: #fdf2f2;
+            background: #fff1f2;
             padding: 12px;
             border-radius: 50%;
-        }
-
-        .info-item p {
-            font-size: 1rem;
+            width: 45px;
+            height: 45px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
         .map-container {
             border-radius: 12px;
             overflow: hidden;
             box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-            height: 350px;
+            height: 330px;
             margin-top: 20px;
         }
 
@@ -317,6 +372,11 @@
             border: 1px solid #ddd;
             border-radius: 6px;
             font-size: 1rem;
+            outline: none;
+        }
+
+        .form-group input:focus, .form-group textarea:focus {
+            border-color: var(--secondary-color);
         }
 
         /* Footer & Social Media */
@@ -349,9 +409,9 @@
             transition: 0.3s;
         }
 
-        .social-icon.fb:hover { background: #1877f2; }
-        .social-icon.ig:hover { background: #e1306c; }
-        .social-icon.map:hover { background: #4285f4; }
+        .social-icon.fb:hover { background: #1877f2; transform: translateY(-3px); }
+        .social-icon.ig:hover { background: #e1306c; transform: translateY(-3px); }
+        .social-icon.map:hover { background: #4285f4; transform: translateY(-3px); }
 
         @media (max-width: 768px) {
             .nav-container { flex-direction: column; gap: 15px; }
@@ -362,16 +422,16 @@
 </head>
 <body>
 
-    <!-- Header Section -->
+    <!-- Header Navigation Section -->
     <header>
         <div class="nav-container">
-            <a onclick="navigateTo('home')" class="logo-area" href="#">
+            <div onclick="navigateTo('home')" class="logo-area">
                 <img src="image_6f7e59.png" alt="Sharma Stationery Market Logo" class="logo-img">
                 <div class="logo-text">
                     <h1>Sharma Stationery Market</h1>
                     <p>Kambal Danga, Udhampur</p>
                 </div>
-            </a>
+            </div>
             <nav>
                 <ul>
                     <li><a onclick="navigateTo('home')" id="nav-home" class="active">Home</a></li>
@@ -383,128 +443,138 @@
         </div>
     </header>
 
-    <!-- PAGE 1: HOME PAGE -->
+    <!-- PAGE 1: HOME SECTION -->
     <section id="home" class="page-section active">
         <div class="hero">
-            <h2>Your Ultimate Stationery Hub</h2>
-            <p>Premium quality School Bags, Premium Art Kits, Writing Gear, and complete Office Essentials right here at Kambal Danga, Udhampur.</p>
-            <button onclick="navigateTo('products')" class="btn">Explore Our Products</button>
+            <img src="image_6f7e59.png" alt="Shop Banner Logo" class="hero-logo">
+            <h2>Welcome to Sharma Stationery Market</h2>
+            <p>Your one-stop destination in Udhampur for premium school bags, professional art coloring gear, stylish hardcase pencil boxes, and full classroom utilities.</p>
+            <button onclick="navigateTo('products')" class="btn">View Product Catalog</button>
         </div>
         <div class="container">
-            <h3 class="section-title">Why Shop With Us?</h3>
+            <h3 class="section-title">What We Offer</h3>
             <div class="features">
                 <div class="feature-card">
-                    <i class="fa-solid fa-graduation-cap"></i>
-                    <h4>Complete School Kits</h4>
-                    <p>From primary learners to higher education, we stock all trusted brands under one roof.</p>
+                    <i class="fa-solid fa-bag-shopping"></i>
+                    <h4>Branded Backpacks</h4>
+                    <p>Huge collection of comfortable, heavy-duty, 3D embossed superhero and trendy pastel bags.</p>
                 </div>
                 <div class="feature-card">
-                    <i class="fa-solid fa-palette"></i>
+                    <i class="fa-solid fa-paintbrush"></i>
                     <h4>Premium Art Supplies</h4>
-                    <p>Branded brush pens, premium colors, pastel kits, and professional tools for creative minds.</p>
+                    <p>Authorized seller of top-tier art tools like Apsara Konnect, Camel brush pens, and DOMS kits.</p>
                 </div>
                 <div class="feature-card">
-                    <i class="fa-solid fa-star"></i>
-                    <h4>Quality Assured</h4>
-                    <p>Stocking top brands like Apsara, Doms, Camel, Genie, Step Up, and Marvel certified gear.</p>
+                    <i class="fa-solid fa-pencil"></i>
+                    <h4>School Accessories</h4>
+                    <p>High quality hardcase internal utility storage slots and fun graphic design boxes for kids.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- PAGE 2: PRODUCTS PAGE -->
+    <!-- PAGE 2: PRODUCTS CATALOG SECTION -->
     <section id="products" class="page-section">
         <div class="container">
-            <h2 class="section-title">Our Premium Product Gallery</h2>
-            <div class="products-grid">
+            <h2 class="section-title">Explore Store Inventory</h2>
+            
+            <!-- Category Filtering Buttons -->
+            <div class="category-tabs">
+                <button class="tab-btn active" onclick="filterCategory('all')">All Products</button>
+                <button class="tab-btn" onclick="filterCategory('art')">Art Supplies</button>
+                <button class="tab-btn" onclick="filterCategory('bags')">School Backpacks</button>
+                <button class="tab-btn" onclick="filterCategory('cases')">Pencil Boxes</button>
+            </div>
+
+            <div class="products-grid" id="gallery-grid">
                 
                 <!-- Product 1 -->
-                <div class="product-card">
-                    <img src="image_6f7e79.png" alt="Apsara Konnect Brush Pens" class="product-img">
+                <div class="product-card" data-cat="art">
+                    <div class="product-img-wrapper"><img src="image_6f7e79.png" alt="Apsara Konnect Brush Pens" class="product-img"></div>
                     <div class="product-info">
-                        <span class="product-tag">Art & Coloring</span>
-                        <h3>Apsara Konnect Brush Pens</h3>
-                        <p>14 Vibrant shades featuring high-flexibility tips for professional lettering and sketch art.</p>
+                        <span class="product-tag">Art Supplies</span>
+                        <h3>Apsara Konnect 14 Shades Brush Pens</h3>
+                        <p>Flexible brush tip markers specialized for fine illustrations, artwork, and calligraphy projects.</p>
                     </div>
                 </div>
 
                 <!-- Product 2 -->
-                <div class="product-card">
-                    <img src="image_6f7e96.png" alt="Camel Brush Pens & Marker Sets" class="product-img">
+                <div class="product-card" data-cat="art">
+                    <div class="product-img-wrapper"><img src="image_6f7e96.png" alt="Camel Brush Pens & Mark Pens" class="product-img"></div>
                     <div class="product-info">
-                        <span class="product-tag">Fine Arts</span>
-                        <h3>Camel Brush Pens & Art Markers</h3>
-                        <p>12 shade premium brush pen packs paired with heavy-duty colorful architecture marking kits.</p>
+                        <span class="product-tag">Art Supplies</span>
+                        <h3>Camel 12 Shades Pack & Touch Mark Pens</h3>
+                        <p>Dual-palette architectures, graphic coloring, and watercolor sketch kits matching professional artist requirements.</p>
                     </div>
                 </div>
 
                 <!-- Product 3 -->
-                <div class="product-card">
-                    <img src="image_6f813d.png" alt="Premium Character Pencil Cases" class="product-img">
+                <div class="product-card" data-cat="cases">
+                    <div class="product-img-wrapper"><img src="image_6f813d.png" alt="Character Zipper Pencil Boxes" class="product-img"></div>
                     <div class="product-info">
-                        <span class="product-tag">Accessories</span>
-                        <h3>Character Hardcase Pencil Box Sets</h3>
-                        <p>Durable zip-up storage pouches featuring Marvel Avengers, Spider-Man, and Mario motifs.</p>
+                        <span class="product-tag">Pencil Boxes</span>
+                        <h3>Hardcase Character Pencil Organizer</h3>
+                        <p>High-capacity internal mesh dividers featuring Spider-Man, Mario, and Iron Man 3D outer designs.</p>
                     </div>
                 </div>
 
                 <!-- Product 4 -->
-                <div class="product-card">
-                    <img src="image_6f815a.png" alt="DOMS Art Strokes Craft Kits" class="product-img">
+                <div class="product-card" data-cat="art">
+                    <div class="product-img-wrapper"><img src="image_6f815a.png" alt="DOMS Art Strokes Craft Kits" class="product-img"></div>
                     <div class="product-info">
-                        <span class="product-tag">Gift Combos</span>
-                        <h3>DOMS Art Strokes Painting Combo</h3>
-                        <p>Complete starter packs with integrated oil pastels, oil cakes, water colors, and drawing sheets.</p>
+                        <span class="product-tag">Art Supplies</span>
+                        <h3>DOMS Art Strokes & Painting Kits</h3>
+                        <p>Complete curated box sets with pre-bundled oil pastels, vibrant color tubes, and specialized sketchbooks.</p>
                     </div>
                 </div>
 
                 <!-- Product 5 -->
-                <div class="product-card">
-                    <img src="image_6f8161.png" alt="DOMS Art Apps NXT Backpack Gear" class="product-img">
+                <div class="product-card" data-cat="bags">
+                    <div class="product-img-wrapper"><img src="image_6f81bc.png" alt="Genie and Step Up Backpacks" class="product-img"></div>
                     <div class="product-info">
-                        <span class="product-tag">Mega Kits</span>
-                        <h3>DOMS Art Gear Heavy Backpack Kit</h3>
-                        <p>Premium multi-item creative station collection complete with custom study backpacks.</p>
+                        <span class="product-tag">School Backpacks</span>
+                        <h3>Genie & Step Up Pastel School Bags</h3>
+                        <p>Lightweight, beautifully printed multi-zipper aesthetic ergonomic packs for senior girls and boys.</p>
                     </div>
                 </div>
 
                 <!-- Product 6 -->
-                <div class="product-card">
-                    <img src="image_6f817d.png" alt="Step Up Designer Backpack" class="product-img">
+                <div class="product-card" data-cat="bags">
+                    <div class="product-img-wrapper"><img src="image_6f8198.png" alt="Superhero Character Embossed Backpacks" class="product-img"></div>
                     <div class="product-info">
-                        <span class="product-tag">School Bags</span>
-                        <h3>Step Up Ergonomic School Bag</h3>
-                        <p>Heavy-duty multi-pocket design build with breathable support straps for active scholars.</p>
+                        <span class="product-tag">School Backpacks</span>
+                        <h3>3D Marvel Avengers Embossed Packs</h3>
+                        <p>Durable water-resistant custom superhero themed school bags built with heavy shoulder cushioning pads.</p>
                     </div>
                 </div>
 
                 <!-- Product 7 -->
-                <div class="product-card">
-                    <img src="image_6f8198.png" alt="Marvel Character Backpack Series" class="product-img">
+                <div class="product-card" data-cat="bags">
+                    <div class="product-img-wrapper"><img src="image_6f817d.png" alt="Step Up Sports Pattern Bag" class="product-img"></div>
                     <div class="product-info">
-                        <span class="product-tag">School Bags</span>
-                        <h3>Superhero Character Embossed Backpacks</h3>
-                        <p>Premium 3D embossed school backpacks featuring Spider-Man, Captain America, and Astro themes.</p>
+                        <span class="product-tag">School Backpacks</span>
+                        <h3>Step Up High Capacity Sports Bag</h3>
+                        <p>Funky high-grade multi-layer storage school backpack featuring sports prints and structural stability tags.</p>
                     </div>
                 </div>
 
                 <!-- Product 8 -->
-                <div class="product-card">
-                    <img src="image_6f819e.png" alt="Premium Marvel Hardcase Backpacks" class="product-img">
+                <div class="product-card" data-cat="bags">
+                    <div class="product-img-wrapper"><img src="image_6f819e.png" alt="Marvel Hardcase Backpacks" class="product-img"></div>
                     <div class="product-info">
-                        <span class="product-tag">School Bags</span>
-                        <h3>3D Iron Man & Spidey Heavy Backpacks</h3>
-                        <p>Structured armored protection shell bag variants with attached matching custom accessory cases.</p>
+                        <span class="product-tag">School Backpacks</span>
+                        <h3>Premium Captain America & Spidey Packs</h3>
+                        <p>Tough-shell high resistance front protection plates with independent custom side pouch clips.</p>
                     </div>
                 </div>
 
                 <!-- Product 9 -->
-                <div class="product-card">
-                    <img src="image_6f81bc.png" alt="Genie Trend School Backpacks" class="product-img">
+                <div class="product-card" data-cat="bags">
+                    <div class="product-img-wrapper"><img src="image_6f815a.png" alt="Unicorn Print Protect Cover Backpack" class="product-img"></div>
                     <div class="product-info">
-                        <span class="product-tag">School Bags</span>
-                        <h3>Genie & Step Up Pastel Backpacks</h3>
-                        <p>Lightweight ultra-stylish design concepts optimized for comfort, space, and modern aesthetic elegance.</p>
+                        <span class="product-tag">School Backpacks</span>
+                        <h3>Magical Unicorn Transit Pack</h3>
+                        <p>Sealed transit wrapper variant showcasing beautiful fantasy themes with extensive side storage slots.</p>
                     </div>
                 </div>
 
@@ -512,55 +582,55 @@
         </div>
     </section>
 
-    <!-- PAGE 3: ABOUT US PAGE -->
+    <!-- PAGE 3: ABOUT US SECTION -->
     <section id="about" class="page-section">
-        <div class="container" style="max-width: 800px; text-align: center;">
-            <h2 class="section-title">About Sharma Stationery Market</h2>
-            <p style="font-size: 1.1rem; margin-bottom: 20px;">Located at the heart of <strong>Kambal Danga, Udhampur</strong>, Sharma Stationery Market is a premium regional retail destination catering extensively to students, professional artists, and schools.</p>
-            <p style="font-size: 1.1rem; margin-bottom: 20px;">We take immense pride in stocking genuine, safe, and premium brand catalogs. From ergonomic high-capacity school travel gear to expert fine art kits and office assets, we serve our community with unparalleled dedication and competitive pricing structures.</p>
-            <div style="margin-top: 40px; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
-                <img src="image_6f8161.png" alt="Inside Store Catalog Showcase" style="width:100%; max-height:400px; object-fit:cover;">
+        <div class="container" style="max-width: 850px; text-align: center;">
+            <h2 class="section-title">About Our Store</h2>
+            <p style="font-size: 1.15rem; margin-bottom: 20px; color: #444;">Conveniently placed at <strong>Kambal Danga, Udhampur</strong>, Sharma Stationery Market is a landmark hub recognized for bringing premier brand collections closer to local students and art professionals.</p>
+            <p style="font-size: 1.15rem; margin-bottom: 25px; color: #444;">We emphasize authenticity, excellent builds, and direct customer satisfaction. Whether it is preparing a child for their new semester with high-durability Marvel character bags or supplying professionals with advanced coloring resources, we handle every detail with pride.</p>
+            
+            <div style="margin-top: 40px; border-radius: 15px; overflow: hidden; box-shadow: 0 8px 25px rgba(0,0,0,0.1);">
+                <img src="image_6f81bc.png" style="width:100%; max-height:450px; object-fit:cover;" alt="Store Shelf Display Preview">
             </div>
         </div>
     </section>
 
-    <!-- PAGE 4: CONTACT PAGE -->
+    <!-- PAGE 4: CONTACT & LOCATION SECTION -->
     <section id="contact" class="page-section">
         <div class="container">
-            <h2 class="section-title">Get In Touch With Us</h2>
+            <h2 class="section-title">Connect / Visit Us</h2>
             
             <div class="contact-wrapper">
-                <!-- Details Panel -->
+                <!-- Direct Details Panel -->
                 <div class="contact-info-panel">
                     <h3>Contact Information</h3>
-                    <p style="margin-bottom: 30px; color: #666;">Visit our physical outlet, drop an email, or call our hotlines directly for product availability queries or wholesale institutional orders.</p>
+                    <p style="margin-bottom: 30px; color: #666;">Reach out to check product quantities, request customized institutional school kit packages, or ask about specific accessories.</p>
                     
                     <div class="info-item">
-                        <i class="fa-solid fa-location-dot"></i>
+                        <i class="fa-solid fa-map-location"></i>
                         <div>
-                            <strong>Our Address</strong>
+                            <strong>Store Location</strong>
                             <p>Kambal Danga, Udhampur, Jammu & Kashmir</p>
                         </div>
                     </div>
 
                     <div class="info-item">
-                        <i class="fa-solid fa-phone"></i>
+                        <i class="fa-solid fa-phone-volume"></i>
                         <div>
-                            <strong>Mobile Lines</strong>
+                            <strong>Call Phone Hotlines</strong>
                             <p>6005331055 &bull; 9622128720 &bull; 9797560287</p>
                         </div>
                     </div>
 
                     <div class="info-item">
-                        <i class="fa-solid fa-envelope"></i>
+                        <i class="fa-solid fa-at"></i>
                         <div>
-                            <strong>Official Email</strong>
+                            <strong>Official Email Inbox</strong>
                             <p>sharma.stationery.market.kd@gmail.com</p>
                         </div>
                     </div>
 
-                    <!-- Live Google Maps Redirect View Embed Framework Link -->
-                    <strong>Find Us on Maps:</strong>
+                    <strong>Find Shop Position via Google Maps:</strong>
                     <div class="map-container">
                         <iframe 
                             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3345.545803273413!2d75.1408101!3d32.9099884!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x391e7fa823d0c2db%3A0xc6c764e4ee7ff37e!2sSharma%20Stationery%20Market!5e0!3m2!1sen!2sin!4v1710000000000!5m2!1sen!2sin" 
@@ -569,63 +639,79 @@
                     </div>
                 </div>
 
-                <!-- Live Message Form Panel -->
+                <!-- Digital Enquiry Form Component -->
                 <div class="contact-form">
-                    <h3>Send Us A Message</h3>
+                    <h3>Drop Us An Instant Inquiry</h3>
                     <form onsubmit="handleFormSubmit(event)">
                         <div class="form-group">
-                            <label for="name">Your Name</label>
-                            <input type="text" id="name" required placeholder="Enter full name">
+                            <label>Your Full Name</label>
+                            <input type="text" id="cust-name" required placeholder="Enter your full name">
                         </div>
                         <div class="form-group">
-                            <label for="phone">Phone Number</label>
-                            <input type="tel" id="phone" required placeholder="Enter mobile number">
+                            <label>Mobile Number</label>
+                            <input type="tel" id="cust-phone" required placeholder="Enter contact number">
                         </div>
                         <div class="form-group">
-                            <label for="msg">Your Requirement / Message</label>
-                            <textarea id="msg" rows="5" required placeholder="Type your school pack, bulk orders or product availability questions here..."></textarea>
+                            <label>What are you looking for?</label>
+                            <textarea id="cust-msg" rows="5" required placeholder="List down requirements (e.g. 3D Spiderman school bag, Doms painting kit availability)..."></textarea>
                         </div>
-                        <button type="submit" class="btn" style="width: 100%;">Submit Inquiry</button>
+                        <button type="submit" class="btn" style="width: 100%;">Submit Store Inquiry</button>
                     </form>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Footer Area -->
+    <!-- Footer Segment -->
     <footer>
         <p>&copy; 2026 <strong>Sharma Stationery Market</strong>. All Rights Reserved.</p>
-        <p style="font-size: 0.85rem; color: #aaa; margin-top: 5px;">Kambal Danga, Udhampur</p>
+        <p style="font-size: 0.85rem; color: #b5b5b5; margin-top: 5px;">Kambal Danga, Udhampur</p>
         
         <div class="social-links">
-            <a href="https://www.facebook.com/profile.php?id=61566358515713" target="_blank" class="social-icon fb" title="Follow on Facebook"><i class="fa-brands fa-facebook-f"></i></a>
-            <a href="https://www.instagram.com/sharma.stationery.kd?igsh=aWh3Ym5iN2RhaWVt" target="_blank" class="social-icon ig" title="Follow on Instagram"><i class="fa-brands fa-instagram"></i></a>
-            <a href="https://maps.app.goo.gl/3KUE48Z3HhMJoFv66" target="_blank" class="social-icon map" title="Find on Google Maps"><i class="fa-solid fa-map-location-dot"></i></a>
+            <a href="https://www.facebook.com/profile.php?id=61566358515713" target="_blank" class="social-icon fb" title="Facebook Store Page"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="https://www.instagram.com/sharma.stationery.kd?igsh=aWh3Ym5iN2RhaWVt" target="_blank" class="social-icon ig" title="Instagram Catalog Updates"><i class="fa-brands fa-instagram"></i></a>
+            <a href="https://maps.app.goo.gl/3KUE48Z3HhMJoFv66" target="_blank" class="social-icon map" title="Directions on Google Maps"><i class="fa-solid fa-location-dot"></i></a>
         </div>
     </footer>
 
-    <!-- Tab Navigation Core Script Routing Control Logic -->
+    <!-- Tab Control & Filter Processing Functions -->
     <script>
         function navigateTo(pageId) {
-            // Hide all pages
+            // Hide alternative views
             const sections = document.querySelectorAll('.page-section');
             sections.forEach(section => section.classList.remove('active'));
 
-            // Remove all active states from nav links
+            // Toggle top header focus state links
             const navLinks = document.querySelectorAll('nav ul li a');
             navLinks.forEach(link => link.classList.remove('active'));
 
-            // Activate chosen target section & menu link
+            // Focus targets
             document.getElementById(pageId).classList.add('active');
             document.getElementById('nav-' + pageId).classList.add('active');
             
-            // Auto scroll cleanly to top window viewport
             window.scrollTo({top: 0, behavior: 'smooth'});
+        }
+
+        function filterCategory(category) {
+            // Update active state filter buttons
+            const buttons = document.querySelectorAll('.tab-btn');
+            buttons.forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
+
+            // Product Cards visibility evaluation logic
+            const cards = document.querySelectorAll('.product-card');
+            cards.forEach(card => {
+                if(category === 'all' || card.getAttribute('data-cat') === category) {
+                    card.style.display = 'flex';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
         }
 
         function handleFormSubmit(e) {
             e.preventDefault();
-            alert("Thank you for choosing Sharma Stationery Market! Your inquiry has been received. Our team will contact you shortly.");
+            alert("Thank you for reaching out to Sharma Stationery Market! Your product request has been sent successfully.");
             e.target.reset();
         }
     </script>
