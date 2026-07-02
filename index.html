@@ -62,16 +62,20 @@
     font-family:var(--font-body); font-weight: 600; font-size:0.85rem; color:var(--bright-red);
     letter-spacing: 0.5px;
   }
-  nav ul{display:flex; align-items: center; gap:24px; font-weight:600; font-size:0.95rem;}
+  nav ul{display:flex; align-items: center; gap:16px; font-weight:600; font-size:0.95rem;}
   nav a{padding:6px 12px; color:var(--navy); border-radius: 6px; transition: all 0.2s;}
   nav a:hover, nav a.active-nav { background: var(--primary-blue); color: #fff; }
   
-  .social-icons-header { display: flex; gap: 10px; margin-left: 15px;}
+  .social-icons-header { display: flex; gap: 12px; margin-left: 15px;}
   .social-btn {
-    width: 34px; height: 34px; border-radius: 50%; display: inline-flex; 
-    align-items: center; justify-content: center; background: #f0f2f5; transition: transform 0.2s;
+    width: 36px; height: 36px; border-radius: 50%; display: inline-flex; 
+    align-items: center; justify-content: center; background: #f0f2f5; transition: all 0.2s;
+    color: var(--navy);
   }
-  .social-btn:hover { transform: scale(1.1); }
+  .social-btn svg { width: 18px; height: 18px; fill: currentColor; }
+  .social-btn.insta:hover { background: #E1306C; color: #fff; transform: scale(1.1); }
+  .social-btn.fb:hover { background: #1877F2; color: #fff; transform: scale(1.1); }
+  
   .menu-btn{display:none; background:none; border:none; font-size:1.8rem; color:var(--primary-blue); cursor:pointer;}
 
   @media (max-width:920px){
@@ -88,58 +92,22 @@
     nav.open a { display: block; width: 100%; }
   }
 
-  /* ---------- 4-SLIDE SLIDER CAROUSEL ---------- */
-  .slider-container {
-    position: relative;
+  /* ---------- SOLID HOME HERO SECTION ---------- */
+  .hero-section {
     width: 100%;
-    height: 560px;
-    overflow: hidden;
-    background: #111;
+    padding: 80px 0;
+    background: linear-gradient(135deg, rgba(10,50,138,0.95) 30%, rgba(31,42,68,0.85)), url('WhatsApp Image 2026-07-01 at 10.43.37 PM.jpeg') center/cover;
+    border-bottom: 4px solid var(--gold-yellow);
+    color: #fff;
   }
-  .slider-track {
-    display: flex;
-    width: 400%; /* 4 Slides = 400% */
-    height: 100%;
-    transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
-  }
-  .slide {
-    width: 25%;
-    height: 100%;
+  .hero-inner-layout {
     display: flex;
     align-items: center;
-    position: relative;
-    padding: 0 80px;
-    background-size: cover;
-    background-position: center;
+    justify-content: space-between;
+    gap: 40px;
   }
-  
-  /* Vibrant backgrounds built to stand alongside the dynamic logo colors */
-  .slide-home {
-    background: linear-gradient(135deg, rgba(10,50,138,0.95) 30%, rgba(31,42,68,0.85)), url('WhatsApp Image 2026-07-01 at 10.43.37 PM.jpeg') center/cover;
-  }
-  .slide-products {
-    background: linear-gradient(135deg, rgba(210,30,30,0.95) 30%, rgba(120,10,10,0.85));
-  }
-  .slide-findus {
-    background: linear-gradient(135deg, rgba(31,42,68,0.95) 30%, rgba(10,50,138,0.9));
-  }
-  .slide-about {
-    background: linear-gradient(135deg, rgba(76,122,94,0.95) 30%, rgba(27,56,39,0.9));
-  }
-
-  .slide-content {
-    max-width: 650px;
-    color: #fff;
-    z-index: 10;
-    transform: translateX(-40px);
-    opacity: 0;
-    transition: all 0.7s ease;
-  }
-  .slide.active .slide-content {
-    transform: translateX(0);
-    opacity: 1;
-  }
-  .slide-tag {
+  .hero-content { max-width: 650px; }
+  .hero-tag {
     font-family: var(--font-mono);
     color: var(--gold-yellow);
     text-transform: uppercase;
@@ -151,7 +119,7 @@
     padding: 4px 12px;
     border-radius: 4px;
   }
-  .slide h2 {
+  .hero-content h2 {
     font-family: var(--font-display);
     font-size: 3.8rem;
     line-height: 1.1;
@@ -159,24 +127,17 @@
     margin-bottom: 18px;
     text-shadow: 0 2px 10px rgba(0,0,0,0.2);
   }
-  .slide p {
+  .hero-content p {
     font-size: 1.15rem;
     margin-bottom: 30px;
     color: #f0f2f5;
   }
-
-  /* Right Side Showcase Elements inside slides */
-  .slide-showcase {
-    position: absolute;
-    right: 10%;
-    top: 50%;
-    transform: translateY(-50%);
+  .hero-showcase {
     width: 320px;
     height: 320px;
     display: flex;
     justify-content: center;
     align-items: center;
-    z-index: 5;
   }
   .showcase-logo {
     width: 100%;
@@ -190,7 +151,6 @@
     50% { transform: translateY(-12px); }
   }
 
-  /* Slider UI Buttons */
   .action-btn {
     font-family: var(--font-body);
     font-weight: 700;
@@ -207,100 +167,72 @@
     box-shadow: 0 4px 15px rgba(246,188,27,0.3);
     transition: all 0.2s;
   }
-  .action-btn:hover { background: #fff; transform: translateY(-2px); box-shadow: 0 6px 20px rgba(255,255,255,0.4); }
-  
-  .slider-arrow {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background: rgba(255, 255, 255, 0.15);
-    color: #fff;
-    border: none;
-    width: 55px;
-    height: 55px;
-    border-radius: 50%;
-    font-size: 1.6rem;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 20;
-    transition: all 0.2s;
-  }
-  .slider-arrow:hover { background: var(--gold-yellow); color: var(--navy); }
-  .arrow-left { left: 20px; }
-  .arrow-right { right: 20px; }
-
-  .slider-navigation-dots {
-    position: absolute;
-    bottom: 30px;
-    left: 50%;
-    transform: translateX(-50%);
-    display: flex;
-    gap: 14px;
-    z-index: 20;
-  }
-  .nav-dot {
-    width: 14px;
-    height: 14px;
-    border-radius: 50%;
-    background: rgba(255, 255, 255, 0.35);
-    cursor: pointer;
-    transition: all 0.2s;
-  }
-  .nav-dot.active { background: var(--gold-yellow); width: 35px; border-radius: 8px; }
+  .action-btn:hover { background: #fff; transform: translateY(-2px); }
 
   @media (max-width: 960px) {
-    .slider-container { height: 500px; }
-    .slide { padding: 0 40px; }
-    .slide h2 { font-size: 2.3rem; }
-    .slide-showcase { display: none; }
+    .hero-inner-layout { flex-direction: column; text-align: center; }
+    .hero-content h2 { font-size: 2.5rem; }
+    .hero-showcase { width: 240px; height: 240px; }
   }
 
-  /* ---------- INFORMATIONAL CARDS GRID ---------- */
-  .quick-info-section {
-    background: var(--cream-card);
-    padding: 60px 0;
-    border-bottom: 2px solid #E9DFC6;
+  /* ---------- SECTION LAYOUTS ---------- */
+  section { padding: 80px 0; scroll-margin-top: 80px; }
+  
+  .section-head { margin-bottom: 40px; }
+  .section-head h2 { 
+    font-family: var(--font-display); 
+    font-size: 2.5rem; 
+    color: var(--primary-blue); 
   }
+  .section-head p { font-size: 1.1rem; color: #555; margin-top: 5px; }
+
+  /* ---------- PRODUCTS SECTION ---------- */
+  #products { background: var(--cream-card); border-bottom: 2px solid #E9DFC6; }
+  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 24px; }
+  .product-card {
+    background: #fff; border: 2px solid var(--navy); border-radius: 14px;
+    padding: 24px; box-shadow: 4px 4px 0 var(--navy); transition: all 0.2s;
+  }
+  .product-card:hover { transform: translateY(-4px); box-shadow: 6px 6px 0 var(--navy); }
+  .product-card h4 { font-family: var(--font-display); font-size: 1.3rem; color: var(--navy); margin-bottom: 6px; }
+  .product-card p { font-size: 0.95rem; color: #555; }
+
+  /* ---------- FIND US SECTION ---------- */
+  #find-us { background: #fff; border-bottom: 2px solid #E9DFC6; }
   .info-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 24px;
+    margin-bottom: 30px;
   }
   .info-card {
-    background: #fff;
+    background: var(--paper);
     border: 2px solid var(--navy);
     border-radius: 12px;
     padding: 24px;
     box-shadow: 4px 4px 0 var(--navy);
   }
-  .info-card h3 {
-    font-family: var(--font-display);
-    color: var(--primary-blue);
-    margin-bottom: 10px;
-    font-size: 1.3rem;
-  }
-  .info-card p { font-size: 0.95rem; color: #555; }
-  .phone-link { font-family: var(--font-mono); font-weight: bold; color: var(--bright-red); display: block; margin-top: 4px;}
-
-  /* ---------- MAP EMBED STYLE ---------- */
+  .info-card h3 { font-family: var(--font-display); color: var(--primary-blue); margin-bottom: 10px; font-size: 1.3rem; }
+  .phone-link { font-family: var(--font-mono); font-weight: bold; color: var(--bright-red); display: block; margin-top: 4px; }
   .map-wrapper {
-    width: 100%;
-    height: 350px;
-    border-radius: 12px;
-    border: 3px solid var(--primary-blue);
-    overflow: hidden;
-    margin-top: 20px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    width: 100%; height: 400px; border-radius: 12px; border: 3px solid var(--primary-blue);
+    overflow: hidden; box-shadow: 0 5px 15px rgba(0,0,0,0.1);
   }
+
+  /* ---------- ABOUT US SECTION ---------- */
+  #about-us { background: var(--cream-card); }
+  .about-box { background: #fff; border: 3px dashed var(--primary-blue); padding: 40px; border-radius: 16px; max-width: 800px; margin: 0 auto; }
+  .about-box p { font-size: 1.1rem; color: var(--ink); margin-bottom: 15px; }
 
   /* ---------- FOOTER ---------- */
-  footer{ background: #0F172A; color: #94A3B8; padding: 40px 0; text-align: center; font-size: 0.9rem; }
-  footer b{ color: #fff; font-family: var(--font-display); font-size: 1.1rem; }
-  .footer-socials { display: flex; justify-content: center; gap: 15px; margin: 15px 0; }
-  .footer-socials a { color: #fff; background: rgba(255,255,255,0.1); width: 38px; height: 38px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold;}
-  .footer-socials a:hover { background: var(--gold-yellow); color: var(--navy); }
+  footer { background: #0F172A; color: #94A3B8; padding: 40px 0; text-align: center; font-size: 0.9rem; }
+  footer b { color: #fff; font-family: var(--font-display); font-size: 1.1rem; }
+  .footer-socials { display: flex; justify-content: center; align-items: center; gap: 16px; margin: 20px 0 10px; }
+  .footer-socials a { display: inline-flex; align-items: center; gap: 8px; color: #fff; background: rgba(255,255,255,0.1); padding: 10px 18px; border-radius: 30px; font-weight: 600; font-size: 0.85rem; transition: all 0.2s;}
+  .footer-socials a svg { width: 16px; height: 16px; fill: currentColor; }
+  .footer-socials a.insta-foot:hover { background: #E1306C; }
+  .footer-socials a.fb-foot:hover { background: #1877F2; }
+  .footer-socials a.map-foot:hover { background: var(--gold-yellow); color: var(--navy); }
 </style>
 </head>
 <body>
@@ -318,201 +250,137 @@
     <button class="menu-btn" id="menuBtn" aria-label="Toggle navigation menu">☰</button>
     <nav id="mainNav">
       <ul>
-        <li><a href="#" class="nav-link active-nav" data-slide="0">Home</a></li>
-        <li><a href="#" class="nav-link" data-slide="1">Products</a></li>
-        <li><a href="#" class="nav-link" data-slide="2">Find Us</a></li>
-        <li><a href="#" class="nav-link" data-slide="3">About Us</a></li>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#products">Products</a></li>
+        <li><a href="#find-us">Find Us</a></li>
+        <li><a href="#about-us">About Us</a></li>
       </ul>
     </nav>
     <div class="social-icons-header">
-      <a href="https://www.instagram.com/sharma.stationery.kd?igsh=aWh3Ym5iN2RhaWVt" target="_blank" class="social-btn" title="Instagram">📸</a>
-      <a href="https://www.facebook.com/profile.php?id=61566358515713" target="_blank" class="social-btn" title="Facebook">👍</a>
+      <a href="https://www.instagram.com/sharma.stationery.kd?igsh=aWh3Ym5iN2RhaWVt" target="_blank" class="social-btn insta" title="Instagram">
+        <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.051.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+      </a>
+      <a href="https://www.facebook.com/profile.php?id=61566358515713" target="_blank" class="social-btn fb" title="Facebook">
+        <svg viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+      </a>
     </div>
   </div>
 </header>
 
-<!-- INTERACTIVE 4-OPTION SLIDER -->
-<div class="slider-container">
-  <button class="slider-arrow arrow-left" id="prevSlide" aria-label="Previous Option">❮</button>
-  <button class="slider-arrow arrow-right" id="nextSlide" aria-label="Next Option">❯</button>
-  
-  <div class="slider-track" id="sliderTrack">
-    
-    <!-- SLIDE 1: HOME -->
-    <div class="slide slide-home active">
-      <div class="slide-content">
-        <span class="slide-tag">Welcome to Sharma Stationery</span>
-        <h2>Your Premium Hub for Every Page & Pencil.</h2>
-        <p>Proudly serving Udhampur with quality school kits, competitive office stock supplies, comprehensive art supplies, and high-speed photocopy/print services.</p>
-        <button class="action-btn" onclick="jumpToSlide(1)">Explore Products &gt;</button>
-      </div>
-      <div class="slide-showcase">
-        <img src="WhatsApp Image 2026-07-01 at 10.43.37 PM.jpeg" alt="Shop Logo Stamp" class="showcase-logo">
-      </div>
+<!-- FIXED HOME SCREEN HERO PANEL -->
+<div class="hero-section" id="home">
+  <div class="wrap hero-inner-layout">
+    <div class="hero-content">
+      <span class="hero-tag">Welcome to Sharma Stationery</span>
+      <h2>Your Premium Hub for Every Page & Pencil.</h2>
+      <p>Proudly serving Udhampur with quality school kits, competitive office stock supplies, comprehensive art supplies, and high-speed photocopy/print services.</p>
+      <a href="#products" class="action-btn">Explore Products ↓</a>
     </div>
-
-    <!-- SLIDE 2: PRODUCTS -->
-    <div class="slide slide-products">
-      <div class="slide-content">
-        <span class="slide-tag">Our Inventory Shelves</span>
-        <h2>School Books, Novelties & Office Assets.</h2>
-        <p>From registers, school notebooks, premium geometry tools, and fine arts painting supplies to custom seasonal gifting cards, crafts charts, and instant document lamination/Xerox copies.</p>
-        <button class="action-btn" onclick="jumpToSlide(2)">Get Location Map &gt;</button>
-      </div>
+    <div class="hero-showcase">
+      <img src="WhatsApp Image 2026-07-01 at 10.43.37 PM.jpeg" alt="Shop Logo Stamp" class="showcase-logo">
     </div>
-
-    <!-- SLIDE 3: FIND US -->
-    <div class="slide slide-findus">
-      <div class="slide-content">
-        <span class="slide-tag">Store Location & Directions</span>
-        <h2>Visit Us At Kambal Danga, Udhampur.</h2>
-        <p>Located dynamically for straightforward residential, school, and corporate logistics pickup access. Click below to view Google Maps or follow our active feeds.</p>
-        <a href="https://maps.app.goo.gl/41XmTmMeABY" target="_blank" class="action-btn">Open Google Maps 🗺️</a>
-      </div>
-    </div>
-
-    <!-- SLIDE 4: ABOUT US -->
-    <div class="slide slide-about">
-      <div class="slide-content">
-        <span class="slide-tag">Our Commitment Since 1985</span>
-        <h2>Built on Quality & Customer Trust.</h2>
-        <p>Providing exceptional retail assistance and custom wholesale order configurations for schools and local businesses across the community. Connect directly with our help counter via telephone support lines.</p>
-        <a href="tel:+919622128720" class="action-btn">Call Helpdesk 📞</a>
-      </div>
-    </div>
-
-  </div>
-
-  <!-- NAVIGATION DOT CONTROLS -->
-  <div class="slider-navigation-dots" id="sliderDots">
-    <div class="nav-dot active" data-index="0" title="Home"></div>
-    <div class="nav-dot" data-index="1" title="Products"></div>
-    <div class="nav-dot" data-index="2" title="Find Us"></div>
-    <div class="nav-dot" data-index="3" title="About Us"></div>
   </div>
 </div>
 
-<!-- BASE DETAILS INFORMATION CARDS SECTION -->
-<section class="quick-info-section">
+<!-- PRODUCTS VIEW -->
+<section id="products">
   <div class="wrap">
+    <div class="section-head">
+      <h2>Our Premium Inventory</h2>
+      <p>A look at what's currently stocked on our shelves across school, office, and creative fields.</p>
+    </div>
+    <div class="grid">
+      <div class="product-card">
+        <h4>School Books & Kits</h4>
+        <p>Premium syllabus exercise registers, standard curriculum course books, and full school kit bundles.</p>
+      </div>
+      <div class="product-card">
+        <h4>Fine Art Gear</h4>
+        <p>Imported drawing canvas sketchbooks, professional grade watercolor plates, brushes, and craft papers.</p>
+      </div>
+      <div class="product-card">
+        <h4>Office Assets</h4>
+        <p>Heavy binders, PVC organizer cases, files, premium ballpoint multi-packs, and desk equipment organizers.</p>
+      </div>
+      <div class="product-card">
+  </div>
+  </div>
+</section>
+
+<!-- FIND US SECTION -->
+<section id="find-us">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Visit or Contact Our Counter</h2>
+      <p>Drop by the shop directly or get in touch through our official support help desk lines.</p>
+    </div>
     <div class="info-grid">
       <div class="info-card">
-        <h3>📍 Location Address</h3>
+        <h3>📍 Store Location</h3>
         <p>Sharma Stationery Market,<br>Kambal Danga, Udhampur, Jammu & Kashmir</p>
+        <a href="https://maps.app.goo.gl/41XmTmMeABY" target="_blank" style="color: var(--primary-blue); font-weight: bold; display: inline-block; margin-top: 10px;">Open on Google Maps App ↗</a>
       </div>
       <div class="info-card">
-        <h3>📞 Official Store Helplines</h3>
+        <h3>📞 Official Helplines</h3>
         <a href="tel:+919622128720" class="phone-link">Call: +91 96221-28720</a>
         <a href="tel:+916005331055" class="phone-link">Call: +91 60053-31055</a>
-        <a href="tel:+91979750287" class="phone-link">Call: +91 97975-02877</a>
-      </div>
-      <div class="info-card">
-        <h3>✨ Quick Connect</h3>
-        <p>Follow our channels on Facebook and Instagram to discover immediate pricing reductions, seasonal inventory drops, and wholesale catalogs.</p>
+        <a href="tel:+919797560287" class="phone-link">Call: +91 97975-60287</a>
       </div>
     </div>
-
-    <!-- EMBEDDED GOOGLE MAP LOCATION COMPONENT -->
     <div class="map-wrapper">
-      <!-- Embedded OpenStreetMap/Google Maps hybrid visualization frame referencing your exact link -->
       <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3345.432049281!2d75.14502!3d32.91501!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzLCbDU0JzU0LjAiTiA3NcKwMDgnNDIuMSJF!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
     </div>
   </div>
 </section>
 
-<!-- BRANDING FOOTER LINK SYSTEM -->
+<!-- ABOUT US VIEW -->
+<section id="about-us">
+  <div class="wrap">
+    <div class="section-head" style="text-align: center;">
+      <h2>Our Story & Trust</h2>
+    </div>
+    <div class="about-box">
+      <p>Established in <b>1985</b>, Sharma Stationery Market has evolved from a traditional neighborhood help-counter into Udhampur's comprehensive retail destination for students, corporate managers, and local hobbyist artists.</p>
+      <p>We pride ourselves on storing everything a child needs for their first school season up to the logistical configurations required for bulk business distributions. Follow us on our digital social channels to secure specialized updates and seasonal wholesale discounts.</p>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER SYSTEM -->
 <footer>
   <div class="wrap">
     <b>Sharma Stationery Market</b>
-    <p style="margin-top:5px;">Kambal Danga, Udhampur · Premium Quality Material Solutions</p>
+    <p style="margin-top:5px;">Kambal Danga, Udhampur · Quality Supply Assured</p>
     
     <div class="footer-socials">
-      <a href="https://www.instagram.com/sharma.stationery.kd?igsh=aWh3Ym5iN2RhaWVt" target="_blank" title="Instagram Profile">Instagram</a>
-      <a href="https://www.facebook.com/profile.php?id=61566358515713" target="_blank" title="Facebook Page">Facebook</a>
-      <a href="https://maps.app.goo.gl/41XmTmMeABY" target="_blank" title="Google Maps Pin">Location Map</a>
+      <a href="https://www.instagram.com/sharma.stationery.kd?igsh=aWh3Ym5iN2RhaWVt" target="_blank" class="insta-foot">
+        <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.051.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+        Instagram
+      </a>
+      <a href="https://www.facebook.com/profile.php?id=61566358515713" target="_blank" class="fb-foot">
+        <svg viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+        Facebook
+      </a>
+      <a href="https://maps.app.goo.gl/41XmTmMeABY" target="_blank" class="map-foot">Location Map</a>
     </div>
 
     <p style="margin-top:20px; font-size:0.8rem; opacity:0.6;">© <span id="year"></span> Sharma Stationery Market. All Rights Reserved.</p>
   </div>
 </footer>
 
-<!-- INTERACTIVE SCRIPT FRAMEWORK -->
 <script>
-// Auto update footer date 
+// Dynamic footer year sync
 document.getElementById('year').textContent = new Date().getFullYear();
 
-// Toggle menu logic for mobile viewports
+// Responsive Mobile Menu Drawer Toggle
 const menuBtn = document.getElementById('menuBtn');
 const mainNav = document.getElementById('mainNav');
 menuBtn.addEventListener('click', () => mainNav.classList.toggle('open'));
 
-// Slider Mechanics Engine
-const track = document.getElementById('sliderTrack');
-const slides = Array.from(track.children);
-const dots = Array.from(document.getElementById('sliderDots').children);
-const navLinks = document.querySelectorAll('.nav-link');
-
-let currentIdx = 0;
-let autoCycleTimer;
-
-function jumpToSlide(targetIndex) {
-  // Translate carousel track by intervals of 25% (since there are 4 slides)
-  track.style.transform = `translateX(-${targetIndex * 25}%)`;
-  
-  // Update structural item classes
-  slides.forEach(s => s.classList.remove('active'));
-  dots.forEach(d => d.classList.remove('active'));
-  navLinks.forEach(l => l.classList.remove('active-nav'));
-  
-  slides[targetIndex].classList.add('active');
-  dots[targetIndex].classList.add('active');
-  
-  // Highlight active option in the top navigation bar matching the slide index
-  if (navLinks[targetIndex]) {
-    navLinks[targetIndex].classList.add('active-nav');
-  }
-  
-  currentIdx = targetIndex;
-  mainNav.classList.remove('open'); // close mobile menu drawer if open
-}
-
-function nextSlide() {
-  let idx = (currentIdx + 1) % slides.length;
-  jumpToSlide(idx);
-}
-
-function prevSlide() {
-  let idx = (currentIdx - 1 + slides.length) % slides.length;
-  jumpToSlide(idx);
-}
-
-// Arrow Button Triggers
-document.getElementById('nextSlide').addEventListener('click', () => { nextSlide(); restartAutoplay(); });
-document.getElementById('prevSlide').addEventListener('click', () => { prevSlide(); restartAutoplay(); });
-
-// Pagination Dot Click Events
-document.getElementById('sliderDots').addEventListener('click', (e) => {
-  if (e.target.classList.contains('nav-dot')) {
-    jumpToSlide(parseInt(e.target.dataset.index));
-    restartAutoplay();
-  }
+// Auto-close drawer on link navigation click
+document.querySelectorAll('#mainNav a').forEach(link => {
+  link.addEventListener('click', () => mainNav.classList.remove('open'));
 });
-
-// Top Navigation Link Direct Bindings
-navLinks.forEach(link => {
-  link.addEventListener('click', (e) => {
-    e.preventDefault();
-    jumpToSlide(parseInt(link.dataset.slide));
-    restartAutoplay();
-  });
-});
-
-// Autoplay loop setup
-function startAutoplay() { autoCycleTimer = setInterval(nextSlide, 6000); }
-function restartAutoplay() { clearInterval(autoCycleTimer); startAutoplay(); }
-
-// Initialize
-startAutoplay();
 </script>
 
 </body>
