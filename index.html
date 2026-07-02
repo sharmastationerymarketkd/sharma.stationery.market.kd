@@ -1,488 +1,88 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sharma Stationery Market | Kambal Danga</title>
-    <!-- FontAwesome for clean icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        /* --- Design System & Variables --- */
-        :root {
-            --primary-blue: #1e3a8a;
-            --secondary-teal: #0d9488;
-            --accent-orange: #f97316;
-            --whatsapp-green: #25d366;
-            --bg-light: #f8fafc;
-            --card-bg: #ffffff;
-            --text-dark: #0f172a;
-            --text-muted: #64748b;
-            --transition: all 0.3s ease;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-
-        body {
-            background-color: var(--bg-light);
-            color: var(--text-dark);
-            line-height: 1.6;
-        }
-
-        /* --- Header & Navigation --- */
-        header {
-            background-color: var(--card-bg);
-            position: fixed;
-            width: 100%;
-            top: 0;
-            left: 0;
-            z-index: 1000;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-            border-bottom: 3px solid var(--secondary-teal);
-        }
-
-        .nav-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 1rem 2rem;
-        }
-
-        .logo {
-            font-size: 1.4rem;
-            font-weight: 700;
-            color: var(--primary-blue);
-            text-decoration: none;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .logo span {
-            color: var(--secondary-teal);
-        }
-
-        .nav-menu {
-            display: flex;
-            list-style: none;
-            gap: 2rem;
-            align-items: center;
-        }
-
-        .nav-link {
-            color: var(--text-dark);
-            text-decoration: none;
-            font-weight: 500;
-            transition: var(--transition);
-        }
-
-        .nav-link:hover, .nav-link.active {
-            color: var(--secondary-teal);
-        }
-
-        .hamburger {
-            display: none;
-            cursor: pointer;
-            background: none;
-            border: none;
-            color: var(--text-dark);
-            font-size: 1.5rem;
-        }
-
-        /* --- Hero Section --- */
-        .hero {
-            padding: 10rem 2rem 6rem;
-            background: linear-gradient(135deg, rgba(30, 58, 138, 0.05) 0%, rgba(13, 148, 136, 0.05) 100%);
-            text-align: center;
-        }
-
-        .hero-content {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .hero h1 {
-            font-size: 3rem;
-            color: var(--primary-blue);
-            margin-bottom: 1.5rem;
-            font-weight: 800;
-        }
-
-        .hero p {
-            color: var(--text-muted);
-            font-size: 1.2rem;
-            margin-bottom: 2.5rem;
-        }
-
-        .cta-group {
-            display: flex;
-            justify-content: center;
-            gap: 1rem;
-            flex-wrap: wrap;
-        }
-
-        .cta-btn {
-            background-color: var(--secondary-teal);
-            color: white;
-            padding: 0.75rem 2rem;
-            border-radius: 50px;
-            font-weight: 600;
-            text-decoration: none;
-            transition: var(--transition);
-            box-shadow: 0 4px 10px rgba(13, 148, 136, 0.2);
-        }
-
-        .cta-btn:hover {
-            background-color: #0f766e;
-            transform: translateY(-2px);
-        }
-
-        .whatsapp-btn {
-            background-color: var(--whatsapp-green);
-            box-shadow: 0 4px 10px rgba(37, 211, 102, 0.2);
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .whatsapp-btn:hover {
-            background-color: #1ebd56;
-            transform: translateY(-2px);
-        }
-
-        /* --- Global Sections Core Layout --- */
-        section {
-            padding: 5rem 2rem;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .section-header {
-            text-align: center;
-            margin-bottom: 4rem;
-        }
-
-        .section-header h2 {
-            font-size: 2.25rem;
-            color: var(--primary-blue);
-            margin-bottom: 0.5rem;
-        }
-
-        /* --- Products & Services Grid --- */
-        .grid-layout {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-        }
-
-        .card {
-            background-color: var(--card-bg);
-            border-radius: 12px;
-            padding: 2.5rem 1.5rem;
-            text-align: center;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.02);
-            border: 1px solid rgba(0,0,0,0.04);
-            transition: var(--transition);
-        }
-
-        .card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
-        }
-
-        .icon-box {
-            width: 70px;
-            height: 70px;
-            background-color: rgba(13, 148, 136, 0.1);
-            color: var(--secondary-teal);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 1.5rem;
-            font-size: 1.75rem;
-        }
-
-        .card h3 {
-            font-size: 1.3rem;
-            margin-bottom: 1rem;
-            color: var(--primary-blue);
-        }
-
-        .card p {
-            color: var(--text-muted);
-            font-size: 0.95rem;
-        }
-
-        /* --- Info & Contact System --- */
-        .contact-container {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 3rem;
-            background-color: var(--card-bg);
-            padding: 3rem;
-            border-radius: 16px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.02);
-        }
-
-        .info-list {
-            display: flex;
-            flex-direction: column;
-            gap: 2rem;
-        }
-
-        .info-card {
-            display: flex;
-            gap: 1.25rem;
-            align-items: flex-start;
-        }
-
-        .info-icon-small {
-            color: var(--secondary-teal);
-            font-size: 1.5rem;
-            margin-top: 0.25rem;
-        }
-
-        .info-details h4 {
-            font-size: 1.1rem;
-            color: var(--primary-blue);
-            margin-bottom: 0.25rem;
-        }
-
-        .info-details p {
-            color: var(--text-muted);
-        }
-
-        .map-box {
-            border-radius: 12px;
-            overflow: hidden;
-            border: 1px solid rgba(0,0,0,0.05);
-            height: 320px;
-        }
-
-        .map-box iframe {
-            width: 100%;
-            height: 100%;
-            border: none;
-        }
-
-        /* --- Footer Layout --- */
-        footer {
-            background-color: var(--primary-blue);
-            color: white;
-            padding: 3rem 2rem 2rem;
-            text-align: center;
-        }
-
-        .social-links {
-            display: flex;
-            justify-content: center;
-            gap: 1.5rem;
-            margin-bottom: 1.5rem;
-        }
-
-        .social-icon {
-            color: white;
-            font-size: 1.5rem;
-            transition: var(--transition);
-        }
-
-        .social-icon:hover {
-            color: var(--accent-orange);
-        }
-        
-        .social-icon.wa:hover {
-            color: var(--whatsapp-green);
-        }
-
-        footer p {
-            font-size: 0.9rem;
-            color: rgba(255,255,255,0.7);
-        }
-
-        /* --- Mobile Breakpoints Navigation CSS --- */
-        @media (max-width: 768px) {
-            .hamburger {
-                display: block;
-            }
-
-            .nav-menu {
-                position: fixed;
-                top: 65px;
-                right: -100%;
-                width: 80%;
-                max-width: 300px;
-                height: calc(100vh - 65px);
-                background-color: var(--card-bg);
-                flex-direction: column;
-                align-items: flex-start;
-                padding: 3rem 2rem;
-                gap: 2rem;
-                transition: var(--transition);
-                box-shadow: -5px 5px 15px rgba(0,0,0,0.05);
-            }
-
-            .nav-menu.active {
-                right: 0;
-            }
-
-            .hero h1 {
-                font-size: 2.25rem;
-            }
-
-            .cta-group {
-                flex-direction: column;
-                align-items: center;
-                gap: 1rem;
-            }
-
-            .contact-container {
-                grid-template-columns: 1fr;
-                padding: 1.5rem;
-            }
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sharma Stationery Market | Kambal Danga, Udhampur</title>
+<meta name="description" content="Sharma Stationery Market, Kambal Danga, Udhampur — school stationery, art & craft supplies, backpacks, bottles, lunch boxes and books, all under one roof.">
+<link rel="icon" href="assets/img/logo.jpg">
+<link rel="stylesheet" href="assets/style.css">
 </head>
 <body>
 
-    <!-- Header Navigation Section -->
-    <header>
-        <div class="nav-container">
-            <a href="#" class="logo"><i class="fa-solid fa-pen-fancy"></i> Sharma <span>Stationery</span></a>
-            <button class="hamburger" id="hamburger-btn"><i class="fa-solid fa-bars"></i></button>
-            <ul class="nav-menu" id="nav-menu-links">
-                <li><a href="#" class="nav-link active">Home</a></li>
-                <li><a href="#inventory" class="nav-link">Inventory</a></li>
-                <li><a href="#about-location" class="nav-link">Location</a></li>
-            </ul>
-        </div>
-    </header>
+<header class="site-header">
+  <div class="nav-inner">
+    <a href="index.html" class="brand">
+      <img src="assets/img/logo.jpg" alt="Sharma Stationery Market logo">
+      <span class="brand-text"><strong>Sharma Stationery Market</strong><span>Kambal Danga, Udhampur</span></span>
+    </a>
+    <button class="nav-toggle" aria-label="Toggle menu">☰</button>
+    <nav class="main-nav">
+      <ul>
+        <li><a href="index.html" class="active">Home</a></li>
+        <li><a href="products.html">Products</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
 
-    <!-- Main Hero Brand Statement Section -->
-    <section class="hero">
-        <div class="hero-content">
-            <h1>Premium Educational & Office Supplies</h1>
-            <p>Your comprehensive neighborhood partner for premium school supplies, academic utilities, professional office tools, and high-speed photocopying services in Kambal Danga.</p>
-            <div class="cta-group">
-                <a href="#inventory" class="cta-btn">View Inventory Hub</a>
-                <!-- Integrated WhatsApp target API button -->
-                <a href="https://wa.me/916005331055?text=Hello!%20I%20have%20an%20inquiry%20regarding%20stationery/photocopy%20services." target="_blank" class="cta-btn whatsapp-btn">
-                    <i class="fa-brands fa-whatsapp"></i> Chat on WhatsApp
-                </a>
-            </div>
-        </div>
-    </section>
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <div class="eyebrow">Kambal Danga's favourite stationery stop</div>
+      <h1>Everything your <span class="swipe">school bag</span> ever asked for.</h1>
+      <p class="lead">From the first pencil of the year to the last art project before exams — books, stationery, art supplies, backpacks, bottles &amp; lunch boxes, all stocked fresh under one roof in Udhampur.</p>
+      <div class="hero-actions">
+        <a href="products.html" class="btn btn-primary">Browse Products</a>
+        <a href="tel:9622128720" class="btn btn-outline">📞 Call the Shop</a>
+      </div>
+      <div class="hero-badges">
+        <div>500+<span>Products in stock</span></div>
+        <div>7+<span>Trusted brands</span></div>
+        <div>3<span>Ways to reach us</span></div>
+      </div>
+    </div>
+    <div class="hero-frame">
+      <img src="assets/img/logo.jpg" alt="Sharma Stationery Market storefront logo">
+    </div>
+  </div>
+</section>
 
-    <!-- Inventory & Services Grid Section -->
-    <section id="inventory">
-        <div class="section-header">
-            <h2>Our Specialized Offerings</h2>
-            <p style="color: var(--text-muted)">Handpicked utility supplies to optimize your workflow and learning environments.</p>
-        </div>
-        <div class="grid-layout">
-            <!-- Item Category 1 -->
-            <div class="card">
-                <div class="icon-box"><i class="fa-solid fa-book-open"></i></div>
-                <h3>School & Office Supplies</h3>
-                <p>Premium notebooks, high-grade folders, precision structural geometry assets, and dynamic writing pens for academic success.</p>
-            </div>
-            <!-- Item Category 2 -->
-            <div class="card">
-                <div class="icon-box"><i class="fa-solid fa-palette"></i></div>
-                <h3>Art & Craft Materials</h3>
-                <p>Vibrant canvas arrays, highly Pigmented acrylic mediums, fine sketching drawing items, and craft construction tools for creative visions.</p>
-            </div>
-            <!-- Item Category 3 -->
-            <div class="card">
-                <div class="icon-box"><i class="fa-solid fa-print"></i></div>
-                <h3>Photocopy & Digital Prints</h3>
-                <p>Heavy-duty precision black-and-white copy jobs, full spectrum colorful documents, instant lamination sealing, and document sorting services.</p>
-            </div>
-        </div>
-    </section>
+<section class="alt-bg">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="tab-label">Why families choose us</span>
+      <h2>Stocked like a shop that actually remembers school lists</h2>
+      <p>Run by people from the neighbourhood, for the neighbourhood — quick help, honest prices, and shelves that are never out of the basics.</p>
+    </div>
+    <div class="grid g4">
+      <div class="feature reveal"><div class="ic">✏️</div><h3>Full School Range</h3><p>Notebooks, guides, geometry boxes &amp; every J&amp;K board textbook you need.</p></div>
+      <div class="feature reveal"><div class="ic">🎨</div><h3>Genuine Art Supplies</h3><p>Doms, Camel &amp; Apsara — brush pens, oil pastels, painting &amp; craft kits.</p></div>
+      <div class="feature reveal"><div class="ic">🎒</div><h3>Bags Kids Love</h3><p>Marvel, unicorn, sport &amp; everyday backpacks in every size.</p></div>
+      <div class="feature reveal"><div class="ic">🍱</div><h3>Bottles &amp; Lunch Boxes</h3><p>Cello insulated bottles and steel lunch trays built for daily school runs.</p></div>
+    </div>
+  </div>
+</section>
 
-    <!-- Business Information & Interactive Map Section -->
-    <section id="about-location">
-        <div class="section-header">
-            <h2>Visit Our Market Location</h2>
-            <p style="color: var(--text-muted)">Stop by to look over our stock or complete your document operations.</p>
+<section>
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="tab-label">Shop by category</span>
+      <h2>A quick look at what's on our shelves</h2>
+    </div>
+    <div class="grid g3">
+      <a href="products.html#art" class="card reveal">
+        <div class="thumb"><img src="assets/img/brush-pens-apsara.jpg" alt="Apsara Konnect brush pens"></div>
+        <div class="body">
+          <div class="tag-row"><span class="tag gold">Art &amp; Craft</span></div>
+          <h3>Art &amp; Craft Supplies</h3>
+          <p>Brush pens, mark pens, oil pastels, colour cakes and complete painting kits.</p>
         </div>
-        <div class="contact-container">
-            <div class="info-list">
-                <!-- Info block item 1 -->
-                <div class="info-card">
-                    <i class="fa-solid fa-location-dot info-icon-small"></i>
-                    <div class="info-details">
-                        <h4>Store Coordinates</h4>
-                        <p>Kambal Danga, Udhampur, Jammu & Kashmir</p>
-                    </div>
-                </div>
-                <!-- Info block item 2 -->
-                <div class="info-card">
-                    <i class="fa-solid fa-phone info-icon-small"></i>
-                    <div class="info-details">
-                        <h4>WhatsApp / Call</h4>
-                        <p>+91 60053 31055</p>
-                    </div>
-                </div>
-                <!-- Info block item 3 -->
-                <div class="info-card">
-                    <i class="fa-solid fa-clock info-icon-small"></i>
-                    <div class="info-details">
-                        <h4>Hours of Operation</h4>
-                        <p>Monday - Saturday: 08:30 AM - 08:00 PM</p>
-                    </div>
-                </div>
-            </div>
-            <!-- Embedded Google Maps Interactive API Layout -->
-            <div class="map-box">
-                <iframe src="https://maps.google.com/maps?q=Kambal%20Danga,%20Udhampur&t=&z=14&ie=UTF8&iwloc=&output=embed" allowfullscreen="" loading="lazy"></iframe>
-            </div>
-        </div>
-    </section>
-
-    <!-- Shared Footer Segment with Social Anchors -->
-    <footer>
-        <div class="social-links">
-            <a href="https://wa.me/916005331055" target="_blank" class="social-icon wa"><i class="fa-brands fa-whatsapp"></i></a>
-            <a href="#" class="social-icon"><i class="fa-brands fa-facebook"></i></a>
-            <a href="#" class="social-icon"><i class="fa-brands fa-instagram"></i></a>
-        </div>
-        <p>&copy; 2026 Sharma Stationery Market. All production workflows reserved.</p>
-    </footer>
-
-    <!-- Frontend Interactive Javascript Logic -->
-    <script>
-        const hamburgerBtn = document.getElementById('hamburger-btn');
-        const navMenuLinks = document.getElementById('nav-menu-links');
-
-        // Toggle mobile responsive sidebar menu view
-        hamburgerBtn.addEventListener('click', () => {
-            navMenuLinks.classList.toggle('active');
-            const toggleIcon = hamburgerBtn.querySelector('i');
-            if (navMenuLinks.classList.contains('active')) {
-                toggleIcon.classList.replace('fa-bars', 'fa-xmark');
-            } else {
-                toggleIcon.classList.replace('fa-xmark', 'fa-bars');
-            }
-        });
-
-        // Safe auto-collapse on navigating via sub anchor choices
-        document.querySelectorAll('.nav-link').forEach(anchorSelection => {
-            anchorSelection.addEventListener('click', () => {
-                navMenuLinks.classList.remove('active');
-                hamburgerBtn.querySelector('i').classList.replace('fa-xmark', 'fa-bars');
-                
-                document.querySelectorAll('.nav-link').forEach(linkItem => linkItem.classList.remove('active'));
-                anchorSelection.classList.add('active');
-            });
-        });
-    </script>
-</body>
-</html>
+      </a>
+      <a href="products.html#bags" class="card reveal">
+        <div class="thumb"><img src="assets/img/bags-superhero.jpg" alt="Superhero school backpacks"></div>
+        <div class="body">
+          <div
