@@ -3,707 +3,165 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sharma Stationery Market | Kambal Danga, Udhampur</title>
-    <!-- Google Fonts & FontAwesome Icons -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
+    <title>The Paper & Ink Co. | Premium Stationery</title>
+    <!-- Tailwind CSS for modern, responsive styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Alpine.js for interactive components (Cart, Filters, etc.) -->
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
-        :root {
-            --primary-color: #d62226;
-            --secondary-color: #1a428a;
-            --accent-color: #fdb913;
-            --dark-color: #2b2b2b;
-            --light-color: #f9f9f9;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Poppins', sans-serif;
-        }
-
-        body {
-            background-color: var(--light-color);
-            color: var(--dark-color);
-            line-height: 1.6;
-        }
-
-        /* Header & Navigation */
-        header {
-            background: white;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-        }
-
-        .nav-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 10px 20px;
-        }
-
-        .logo-area {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-            text-decoration: none;
-            color: inherit;
-            cursor: pointer;
-        }
-
-        .logo-img {
-            width: 75px;
-            height: 75px;
-            object-fit: cover;
-            border-radius: 50%;
-            border: 2px solid var(--accent-color);
-        }
-
-        .logo-text h1 {
-            font-size: 1.4rem;
-            color: var(--primary-color);
-            font-weight: 700;
-        }
-
-        .logo-text p {
-            font-size: 0.85rem;
-            color: var(--secondary-color);
-            font-weight: 600;
-        }
-
-        nav ul {
-            display: flex;
-            list-style: none;
-            gap: 15px;
-        }
-
-        nav ul li a {
-            text-decoration: none;
-            color: var(--dark-color);
-            font-weight: 600;
-            padding: 8px 16px;
-            border-radius: 5px;
-            transition: all 0.3s;
-            cursor: pointer;
-        }
-
-        nav ul li a:hover, nav ul li a.active {
-            background-color: var(--primary-color);
-            color: white;
-        }
-
-        /* Core Section Multi-page handling */
-        .page-section {
-            display: none;
-            animation: fadeIn 0.4s ease-in-out forwards;
-        }
-
-        .page-section.active {
-            display: block;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        /* General Layouts */
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 50px 20px;
-        }
-
-        .section-title {
-            text-align: center;
-            font-size: 2.3rem;
-            margin-bottom: 40px;
-            color: var(--secondary-color);
-        }
-
-        .section-title::after {
-            content: '';
-            width: 70px;
-            height: 4px;
-            background: var(--primary-color);
-            display: block;
-            margin: 10px auto 0;
-            border-radius: 2px;
-        }
-
-        /* Home View styles */
-        .hero {
-            background: linear-gradient(rgba(26, 66, 138, 0.9), rgba(214, 34, 38, 0.85)), url('image_6f815a.jpeg') no-repeat center center/cover;
-            color: white;
-            padding: 90px 20px;
-            text-align: center;
-        }
-
-        .hero-logo {
-            width: 140px;
-            height: 140px;
-            border-radius: 50%;
-            border: 4px solid white;
-            margin-bottom: 20px;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.2);
-        }
-
-        .hero h2 {
-            font-size: 2.8rem;
-            margin-bottom: 15px;
-            font-weight: 700;
-        }
-
-        .hero p {
-            font-size: 1.1rem;
-            margin-bottom: 30px;
-            max-width: 700px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .btn {
-            display: inline-block;
-            background: var(--accent-color);
-            color: var(--dark-color);
-            padding: 12px 35px;
-            font-weight: 700;
-            text-decoration: none;
-            border-radius: 30px;
-            transition: 0.3s;
-            border: none;
-            cursor: pointer;
-            font-size: 1rem;
-        }
-
-        .btn:hover {
-            transform: scale(1.05);
-            background: #e2a50a;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-        }
-
-        /* Features Section */
-        .features {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 30px;
-            margin-top: 20px;
-        }
-
-        .feature-card {
-            background: white;
-            padding: 30px;
-            border-radius: 10px;
-            text-align: center;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-            border-top: 4px solid var(--secondary-color);
-        }
-
-        .feature-card i {
-            font-size: 2.5rem;
-            color: var(--primary-color);
-            margin-bottom: 15px;
-        }
-
-        /* Category Filter Tabs */
-        .category-tabs {
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-            margin-bottom: 35px;
-            flex-wrap: wrap;
-        }
-
-        .tab-btn {
-            background: #e8f0fe;
-            color: var(--secondary-color);
-            border: none;
-            padding: 10px 24px;
-            border-radius: 20px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: 0.3s;
-        }
-
-        .tab-btn.active, .tab-btn:hover {
-            background: var(--secondary-color);
-            color: white;
-        }
-
-        /* Products Grid */
-        .products-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 30px;
-        }
-
-        .product-card {
-            background: white;
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 6px 18px rgba(0,0,0,0.06);
-            transition: transform 0.3s, display 0.3s;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .product-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 12px 25px rgba(0,0,0,0.12);
-        }
-
-        .product-img-wrapper {
-            width: 100%;
-            height: 300px;
-            background: #f5f5f5;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            overflow: hidden;
-        }
-
-        .product-img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.5s;
-        }
-
-        .product-card:hover .product-img {
-            transform: scale(1.05);
-        }
-
-        .product-info {
-            padding: 20px;
-            text-align: center;
-            flex-grow: 1;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-        }
-
-        .product-tag {
-            background: #fff1f2;
-            color: var(--primary-color);
-            font-size: 0.75rem;
-            font-weight: bold;
-            padding: 4px 14px;
-            border-radius: 20px;
-            display: inline-block;
-            margin-bottom: 12px;
-            align-self: center;
-            text-transform: uppercase;
-        }
-
-        .product-info h3 {
-            font-size: 1.15rem;
-            margin-bottom: 10px;
-            color: #333;
-        }
-
-        /* Contact & Forms */
-        .contact-wrapper {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
-            gap: 40px;
-        }
-
-        .contact-info-panel {
-            background: white;
-            padding: 40px;
-            border-radius: 12px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-        }
-
-        .info-item {
-            display: flex;
-            align-items: flex-start;
-            gap: 15px;
-            margin-bottom: 25px;
-        }
-
-        .info-item i {
-            font-size: 1.3rem;
-            color: var(--primary-color);
-            background: #fff1f2;
-            padding: 12px;
-            border-radius: 50%;
-            width: 45px;
-            height: 45px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .map-container {
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-            height: 330px;
-            margin-top: 20px;
-        }
-
-        .contact-form {
-            background: white;
-            padding: 40px;
-            border-radius: 12px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-        }
-
-        .form-group {
-            margin-bottom: 20px;
-        }
-
-        .form-group label {
-            display: block;
-            margin-bottom: 8px;
-            font-weight: 600;
-        }
-
-        .form-group input, .form-group textarea {
-            width: 100%;
-            padding: 12px;
-            border: 1px solid #ddd;
-            border-radius: 6px;
-            font-size: 1rem;
-            outline: none;
-        }
-
-        .form-group input:focus, .form-group textarea:focus {
-            border-color: var(--secondary-color);
-        }
-
-        /* Footer & Social Media */
-        footer {
-            background: var(--dark-color);
-            color: white;
-            padding: 40px 20px;
-            text-align: center;
-            margin-top: 60px;
-        }
-
-        .social-links {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            margin: 20px 0;
-        }
-
-        .social-icon {
-            width: 45px;
-            height: 45px;
-            border-radius: 50%;
-            background: rgba(255,255,255,0.1);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 1.2rem;
-            text-decoration: none;
-            transition: 0.3s;
-        }
-
-        .social-icon.fb:hover { background: #1877f2; transform: translateY(-3px); }
-        .social-icon.ig:hover { background: #e1306c; transform: translateY(-3px); }
-        .social-icon.map:hover { background: #4285f4; transform: translateY(-3px); }
-
-        @media (max-width: 768px) {
-            .nav-container { flex-direction: column; gap: 15px; }
-            .hero h2 { font-size: 2rem; }
-            .contact-wrapper { grid-template-columns: 1fr; }
-        }
+        body { font-family: 'Inter', sans-serif; }
     </style>
 </head>
-<body>
+<body class="bg-gray-50 text-gray-900" x-data="{ cartOpen: false, selectedCategory: 'All', cartCount: 0 }">
 
-    <!-- Header Navigation Section -->
-    <header>
-        <div class="nav-container">
-            <div onclick="navigateTo('home')" class="logo-area">
-                <img src="image_6f7e59.png" alt="Sharma Stationery Market Logo" class="logo-img">
-                <div class="logo-text">
-                    <h1>Sharma Stationery Market</h1>
-                    <p>Kambal Danga, Udhampur</p>
-                </div>
-            </div>
-            <nav>
-                <ul>
-                    <li><a onclick="navigateTo('home')" id="nav-home" class="active">Home</a></li>
-                    <li><a onclick="navigateTo('products')" id="nav-products">Products</a></li>
-                    <li><a onclick="navigateTo('about')" id="nav-about">About Us</a></li>
-                    <li><a onclick="navigateTo('contact')" id="nav-contact">Contact</a></li>
-                </ul>
+    <!-- Top Announcement Bar -->
+    <div class="bg-stone-900 text-white text-xs tracking-wider text-center py-2 px-4 font-light">
+        FREE SHIPPING ON ORDERS OVER $50 • NEW JOURNAL COLLECTION OUT NOW
+    </div>
+
+    <!-- Navigation Header -->
+    <header class="sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b border-gray-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <!-- Brand Logo -->
+            <a href="#" class="text-2xl font-bold tracking-tight text-stone-800">
+                PAPER<span class="font-light text-stone-500">&INK.</span>
+            </a>
+
+            <!-- Desktop Menu -->
+            <nav class="hidden md:flex space-x-8 text-sm font-medium tracking-wide text-gray-600">
+                <a href="#" class="hover:text-stone-900 transition">Home</a>
+                <a href="#shop" class="hover:text-stone-900 transition">Shop</a>
+                <a href="#about" class="hover:text-stone-900 transition">Our Story</a>
+                <a href="#contact" class="hover:text-stone-900 transition">Contact</a>
             </nav>
+
+            <!-- Cart Trigger -->
+            <button @click="cartOpen = true" class="relative p-2 text-gray-700 hover:text-stone-900 focus:outline-none">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 10.5V6a3.75 3.75 0 1 0-7.5 0v45m11.356-1.993 1.263-12c.07-.665-.45-1.243-1.119-1.243H4.25a1.125 1.125 0 0 0-1.12 1.243l1.264 12A1.125 1.125 0 0 0 5.513 21h12.974c.576 0 1.059-.435 1.119-1.007ZM8.625 10.5a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm7.5 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Z" />
+                </svg>
+                <span x-text="cartCount" class="absolute top-0 right-0 inline-flex items-center justify-center px-2 py-1 text-xs font-bold leading-none text-white transform translate-x-1/2 -translate-y-1/2 bg-stone-700 rounded-full">0</span>
+            </button>
         </div>
     </header>
 
-    <!-- PAGE 1: HOME SECTION -->
-    <section id="home" class="page-section active">
-        <div class="hero">
-            <img src="image_6f7e59.png" alt="Shop Banner Logo" class="hero-logo">
-            <h2>Welcome to Sharma Stationery Market</h2>
-            <p>Your one-stop destination in Udhampur for premium school bags, professional art coloring gear, stylish hardcase pencil boxes, and full classroom utilities.</p>
-            <button onclick="navigateTo('products')" class="btn">View Product Catalog</button>
-        </div>
-        <div class="container">
-            <h3 class="section-title">What We Offer</h3>
-            <div class="features">
-                <div class="feature-card">
-                    <i class="fa-solid fa-bag-shopping"></i>
-                    <h4>Branded Backpacks</h4>
-                    <p>Huge collection of comfortable, heavy-duty, 3D embossed superhero and trendy pastel bags.</p>
-                </div>
-                <div class="feature-card">
-                    <i class="fa-solid fa-paintbrush"></i>
-                    <h4>Premium Art Supplies</h4>
-                    <p>Authorized seller of top-tier art tools like Apsara Konnect, Camel brush pens, and DOMS kits.</p>
-                </div>
-                <div class="feature-card">
-                    <i class="fa-solid fa-pencil"></i>
-                    <h4>School Accessories</h4>
-                    <p>High quality hardcase internal utility storage slots and fun graphic design boxes for kids.</p>
-                </div>
+    <!-- Hero Section -->
+    <section class="relative bg-stone-100 overflow-hidden py-24 sm:py-32">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+            <div class="space-y-6">
+                <span class="text-xs uppercase tracking-widest text-stone-500 font-semibold block">Crafted for Creators</span>
+                <h1 class="text-4xl sm:text-5xl lg:text-6xl font-serif text-stone-900 leading-tight">
+                    Tools that bring your thoughts to paper.
+                </h1>
+                <p class="text-lg text-gray-600 max-w-md">
+                    Explore our curated collection of minimalist leather journals, precision fountain pens, and essential desk accessories.
+                </p>
+                <a href="#shop" class="inline-block bg-stone-900 text-white text-sm font-medium px-8 py-3.5 hover:bg-stone-800 transition rounded-none shadow-sm">
+                    Browse Catalogue
+                </a>
+            </div>
+            <div class="relative h-72 sm:h-96 md:h-full bg-stone-200 flex items-center justify-center rounded-lg overflow-hidden shadow-sm">
+                <!-- Replace with your actual catalog feature image -->
+                <img src="https://images.unsplash.com/photo-1513542789411-b6a5d4f31634?q=80&w=1000" alt="Stationery" class="object-cover w-full h-full mix-blend-multiply opacity-90">
             </div>
         </div>
     </section>
 
-    <!-- PAGE 2: PRODUCTS CATALOG SECTION -->
-    <section id="products" class="page-section">
-        <div class="container">
-            <h2 class="section-title">Explore Store Inventory</h2>
+    <!-- Product Catalogue Workspace -->
+    <main id="shop" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+        <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 border-b border-gray-200 pb-5">
+            <div>
+                <h2 class="text-3xl font-bold tracking-tight text-gray-900">The Collection</h2>
+                <p class="mt-2 text-sm text-gray-500">Filter through our active catalog of premium supplies.</p>
+            </div>
             
-            <!-- Category Filtering Buttons -->
-            <div class="category-tabs">
-                <button class="tab-btn active" onclick="filterCategory('all')">All Products</button>
-                <button class="tab-btn" onclick="filterCategory('art')">Art Supplies</button>
-                <button class="tab-btn" onclick="filterCategory('bags')">School Backpacks</button>
-                <button class="tab-btn" onclick="filterCategory('cases')">Pencil Boxes</button>
-            </div>
-
-            <div class="products-grid" id="gallery-grid">
-                
-                <!-- Product 1 -->
-                <div class="product-card" data-cat="art">
-                    <div class="product-img-wrapper"><img src="image_6f7e79.jpeg" alt="Apsara Konnect Brush Pens" class="product-img"></div>
-                    <div class="product-info">
-                        <span class="product-tag">Art Supplies</span>
-                        <h3>Apsara Konnect 14 Shades Brush Pens</h3>
-                        <p>Flexible brush tip markers specialized for fine illustrations, artwork, and calligraphy projects.</p>
-                    </div>
-                </div>
-
-                <!-- Product 2 -->
-                <div class="product-card" data-cat="art">
-                    <div class="product-img-wrapper"><img src="image_6f7e96.jpeg" alt="Camel Brush Pens & Mark Pens" class="product-img"></div>
-                    <div class="product-info">
-                        <span class="product-tag">Art Supplies</span>
-                        <h3>Camel 12 Shades Pack & Touch Mark Pens</h3>
-                        <p>Dual-palette architectures, graphic coloring, and watercolor sketch kits matching professional artist requirements.</p>
-                    </div>
-                </div>
-
-                <!-- Product 3 -->
-                <div class="product-card" data-cat="cases">
-                    <div class="product-img-wrapper"><img src="image_6f813d.jpeg" alt="Character Zipper Pencil Boxes" class="product-img"></div>
-                    <div class="product-info">
-                        <span class="product-tag">Pencil Boxes</span>
-                        <h3>Hardcase Character Pencil Organizer</h3>
-                        <p>High-capacity internal mesh dividers featuring Spider-Man, Mario, and Iron Man 3D outer designs.</p>
-                    </div>
-                </div>
-
-                <!-- Product 4 -->
-                <div class="product-card" data-cat="art">
-                    <div class="product-img-wrapper"><img src="image_6f815a.jpeg" alt="DOMS Art Strokes Craft Kits" class="product-img"></div>
-                    <div class="product-info">
-                        <span class="product-tag">Art Supplies</span>
-                        <h3>DOMS Art Strokes & Painting Kits</h3>
-                        <p>Complete curated box sets with pre-bundled oil pastels, vibrant color tubes, and specialized sketchbooks.</p>
-                    </div>
-                </div>
-
-                <!-- Product 5 -->
-                <div class="product-card" data-cat="bags">
-                    <div class="product-img-wrapper"><img src="image_6f81bc.jpeg" alt="Genie and Step Up Backpacks" class="product-img"></div>
-                    <div class="product-info">
-                        <span class="product-tag">School Backpacks</span>
-                        <h3>Genie & Step Up Pastel School Bags</h3>
-                        <p>Lightweight, beautifully printed multi-zipper aesthetic ergonomic packs for senior girls and boys.</p>
-                    </div>
-                </div>
-
-                <!-- Product 6 -->
-                <div class="product-card" data-cat="bags">
-                    <div class="product-img-wrapper"><img src="image_6f8198.jpeg" alt="Superhero Character Embossed Backpacks" class="product-img"></div>
-                    <div class="product-info">
-                        <span class="product-tag">School Backpacks</span>
-                        <h3>3D Marvel Avengers Embossed Packs</h3>
-                        <p>Durable water-resistant custom superhero themed school bags built with heavy shoulder cushioning pads.</p>
-                    </div>
-                </div>
-
-                <!-- Product 7 -->
-                <div class="product-card" data-cat="bags">
-                    <div class="product-img-wrapper"><img src="image_6f817d.jpeg" alt="Step Up Sports Pattern Bag" class="product-img"></div>
-                    <div class="product-info">
-                        <span class="product-tag">School Backpacks</span>
-                        <h3>Step Up High Capacity Sports Bag</h3>
-                        <p>Funky high-grade multi-layer storage school backpack featuring sports prints and structural stability tags.</p>
-                    </div>
-                </div>
-
-                <!-- Product 8 -->
-                <div class="product-card" data-cat="bags">
-                    <div class="product-img-wrapper"><img src="image_6f819e.jpeg" alt="Marvel Hardcase Backpacks" class="product-img"></div>
-                    <div class="product-info">
-                        <span class="product-tag">School Backpacks</span>
-                        <h3>Premium Captain America & Spidey Packs</h3>
-                        <p>Tough-shell high resistance front protection plates with independent custom side pouch clips.</p>
-                    </div>
-                </div>
-
+            <!-- Category Filters -->
+            <div class="mt-4 md:mt-0 flex flex-wrap gap-2">
+                <template x-for="cat in ['All', 'Journals', 'Writing', 'Desk Accessories']">
+                    <button 
+                        @click="selectedCategory = cat"
+                        :class="selectedCategory === cat ? 'bg-stone-900 text-white' : 'bg-white text-gray-600 border border-gray-200 hover:border-gray-400'"
+                        class="text-xs font-medium uppercase tracking-wider px-4 py-2 transition"
+                        x-text="cat">
+                    </button>
+                </template>
             </div>
         </div>
-    </section>
 
-    <!-- PAGE 3: ABOUT US SECTION -->
-    <section id="about" class="page-section">
-        <div class="container" style="max-width: 850px; text-align: center;">
-            <h2 class="section-title">About Our Store</h2>
-            <p style="font-size: 1.15rem; margin-bottom: 20px; color: #444;">Conveniently placed at <strong>Kambal Danga, Udhampur</strong>, Sharma Stationery Market is a landmark hub recognized for bringing premier brand collections closer to local students and art professionals.</p>
-            <p style="font-size: 1.15rem; margin-bottom: 25px; color: #444;">We emphasize authenticity, excellent builds, and direct customer satisfaction. Whether it is preparing a child for their new semester with high-durability Marvel character bags or supplying professionals with advanced coloring resources, we handle every detail with pride.</p>
+        <!-- Catalog Grid Layout -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-y-12 gap-x-8" 
+             x-data="{
+                products: [
+                    { id: 1, name: 'Minimalist A5 Leather Journal', price: '$28.00', category: 'Journals', image: 'https://images.unsplash.com/photo-1544816155-12df9643f363?q=80&w=600', specs: '160 Pages, 120 GSM dotted paper, Vegan leather.' },
+                    { id: 2, name: 'Matte Black Fountain Pen', price: '$45.00', category: 'Writing', image: 'https://images.unsplash.com/photo-1583485088034-697b5bc54ccd?q=80&w=600', specs: 'Fine Nib, Includes converter & 3 black ink cartridges.' },
+                    { id: 3, name: 'Concrete Desk Organizer Set', price: '$38.00', category: 'Desk Accessories', image: 'https://images.unsplash.com/photo-1596704017254-9b121068fb31?q=80&w=600', specs: '3-Piece set, raw concrete finish, non-slip base.' },
+                    { id: 4, name: 'Brass Mechanical Pencil', price: '$32.00', category: 'Writing', image: 'https://images.unsplash.com/photo-1562259949-e8e7689d7828?q=80&w=600', specs: '0.5mm lead width, solid raw brass construction.' }
+                ]
+             }">
             
-            <div style="margin-top: 40px; border-radius: 15px; overflow: hidden; box-shadow: 0 8px 25px rgba(0,0,0,0.1);">
-                <img src="image_6f81bc.jpeg" style="width:100%; max-height:450px; object-fit:cover;" alt="Store Shelf Display Preview">
-            </div>
-        </div>
-    </section>
-
-    <!-- PAGE 4: CONTACT & LOCATION SECTION -->
-    <section id="contact" class="page-section">
-        <div class="container">
-            <h2 class="section-title">Connect / Visit Us</h2>
-            
-            <div class="contact-wrapper">
-                <!-- Direct Details Panel -->
-                <div class="contact-info-panel">
-                    <h3>Contact Information</h3>
-                    <p style="margin-bottom: 30px; color: #666;">Reach out to check product quantities, request customized institutional school kit packages, or ask about specific accessories.</p>
-                    
-                    <div class="info-item">
-                        <i class="fa-solid fa-map-location"></i>
-                        <div>
-                            <strong>Store Location</strong>
-                            <p>Kambal Danga, Udhampur, Jammu & Kashmir</p>
+            <template x-for="product in products" :key="product.id">
+                <div x-show="selectedCategory === 'All' || product.category === selectedCategory" 
+                     class="group relative flex flex-col justify-between bg-white border border-gray-100 p-4 transition hover:shadow-md">
+                    <div>
+                        <div class="aspect-w-1 aspect-h-1 w-full overflow-hidden bg-gray-100 mb-4 h-64">
+                            <img :src="product.image" :alt="product.name" class="h-full w-full object-cover object-center group-hover:scale-102 transition duration-300">
                         </div>
+                        <span class="text-xs uppercase font-semibold text-stone-400 tracking-wider" x-text="product.category"></span>
+                        <h3 class="text-sm font-medium text-gray-900 mt-1" x-text="product.name"></h3>
+                        <!-- Product Spec Sheet Detail -->
+                        <p class="text-xs text-gray-500 mt-2 line-clamp-2 bg-stone-50 p-2 border-l-2 border-stone-300" x-text="product.specs"></p>
                     </div>
-
-                    <div class="info-item">
-                        <i class="fa-solid fa-phone-volume"></i>
-                        <div>
-                            <strong>Call Phone Hotlines</strong>
-                            <p>6005331055 &bull; 9622128720 &bull; 9797560287</p>
-                        </div>
-                    </div>
-
-                    <div class="info-item">
-                        <i class="fa-solid fa-at"></i>
-                        <div>
-                            <strong>Official Email Inbox</strong>
-                            <p>sharma.stationery.market.kd@gmail.com</p>
-                        </div>
-                    </div>
-
-                    <strong>Find Shop Position via Google Maps:</strong>
-                    <div class="map-container">
-                        <iframe 
-                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3345.545803273413!2d75.1408101!3d32.9099884!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x391e7fa823d0c2db%3A0xc6c764e4ee7ff37e!2sSharma%20Stationery%20Market!5e0!3m2!1sen!2sin!4v1710000000000!5m2!1sen!2sin" 
-                            width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy">
-                        </iframe>
+                    <div class="mt-4 pt-4 border-t border-gray-100 flex items-center justify-between">
+                        <span class="text-base font-semibold text-stone-900" x-text="product.price"></span>
+                        <button @click="cartCount++" class="text-xs uppercase bg-stone-900 text-white px-3 py-2 hover:bg-stone-800 transition tracking-wider">
+                            Add to Cart
+                        </button>
                     </div>
                 </div>
+            </template>
+        </div>
+    </main>
 
-                <!-- Digital Enquiry Form Component -->
-                <div class="contact-form">
-                    <h3>Drop Us An Instant Inquiry</h3>
-                    <form onsubmit="handleFormSubmit(event)">
-                        <div class="form-group">
-                            <label>Your Full Name</label>
-                            <input type="text" id="cust-name" required placeholder="Enter your full name">
+    <!-- Side Shopping Cart Drawer -->
+    <div x-show="cartOpen" class="relative z-50" aria-labelledby="slide-over-title" role="dialog" aria-modal="true" style="display: none;">
+        <div class="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity" @click="cartOpen = false"></div>
+        <div class="fixed inset-0 overflow-hidden">
+            <div class="absolute inset-0 overflow-hidden">
+                <div class="pointer-events-none fixed inset-y-0 right-0 flex max-w-full pl-10">
+                    <div class="pointer-events-auto w-screen max-w-md">
+                        <div class="flex h-full flex-col overflow-y-scroll bg-white shadow-xl">
+                            <div class="flex-1 overflow-y-auto px-4 py-6 sm:px-6">
+                                <div class="flex items-start justify-between">
+                                    <h2 class="text-lg font-medium text-gray-900" id="slide-over-title">Shopping Cart</h2>
+                                    <button @click="cartOpen = false" class="text-gray-400 hover:text-gray-500">
+                                        <svg class="h-6 h-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" /></svg>
+                                    </button>
+                                </div>
+                                <div class="mt-8 text-center text-gray-500 py-12">
+                                    <p x-show="cartCount === 0">Your cart is currently empty.</p>
+                                    <div x-show="cartCount > 0" class="text-left bg-stone-50 p-4 border border-stone-200">
+                                        <p class="text-stone-800 font-medium">Items in Cart: <span x-text="cartCount"></span></p>
+                                        <p class="text-xs text-gray-500 mt-1">This is a dynamic template mockup view.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="border-t border-gray-200 px-4 py-6 sm:px-6">
+                                <button @click="alert('Proceeding to integration gateway!')" class="w-full bg-stone-900 py-3 text-sm font-medium text-white shadow-sm hover:bg-stone-800 transition">Checkout</button>
+                            </div>
                         </div>
-                        <div class="form-group">
-                            <label>Mobile Number</label>
-                            <input type="tel" id="cust-phone" required placeholder="Enter contact number">
-                        </div>
-                        <div class="form-group">
-                            <label>What are you looking for?</label>
-                            <textarea id="cust-msg" rows="5" required placeholder="List down requirements (e.g. 3D Spiderman school bag, Doms painting kit availability)..."></textarea>
-                        </div>
-                        <button type="submit" class="btn" style="width: 100%;">Submit Store Inquiry</button>
-                    </form>
+                    </div>
                 </div>
             </div>
         </div>
-    </section>
+    </div>
 
-    <!-- Footer Segment -->
-    <footer>
-        <p>&copy; 2026 <strong>Sharma Stationery Market</strong>. All Rights Reserved.</p>
-        <p style="font-size: 0.85rem; color: #b5b5b5; margin-top: 5px;">Kambal Danga, Udhampur</p>
-        
-        <div class="social-links">
-            <a href="https://www.facebook.com/profile.php?id=61566358515713" target="_blank" class="social-icon fb" title="Facebook Store Page"><i class="fa-brands fa-facebook-f"></i></a>
-            <a href="https://www.instagram.com/sharma.stationery.kd?igsh=aWh3Ym5iN2RhaWVt" target="_blank" class="social-icon ig" title="Instagram Catalog Updates"><i class="fa-brands fa-instagram"></i></a>
-            <a href="https://maps.app.goo.gl/3KUE48Z3HhMJoFv66" target="_blank" class="social-icon map" title="Directions on Google Maps"><i class="fa-solid fa-location-dot"></i></a>
+    <!-- Simple Footer -->
+    <footer class="bg-white border-t border-gray-100 py-12 mt-24">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-xs text-gray-400 tracking-wider">
+            <p>&copy; 2026 PAPER&INK. Crafted with care. All rights reserved.</p>
         </div>
     </footer>
 
-    <!-- Tab Control & Filter Processing Functions -->
-    <script>
-        function navigateTo(pageId) {
-            // Hide alternative views
-            const sections = document.querySelectorAll('.page-section');
-            sections.forEach(section => section.classList.remove('active'));
-
-            // Toggle top header focus state links
-            const navLinks = document.querySelectorAll('nav ul li a');
-            navLinks.forEach(link => link.classList.remove('active'));
-
-            // Focus targets
-            document.getElementById(pageId).classList.add('active');
-            document.getElementById('nav-' + pageId).classList.add('active');
-            
-            window.scrollTo({top: 0, behavior: 'smooth'});
-        }
-
-        function filterCategory(category) {
-            // Update active state filter buttons
-            const buttons = document.querySelectorAll('.tab-btn');
-            buttons.forEach(btn => btn.classList.remove('active'));
-            event.target.classList.add('active');
-
-            // Product Cards visibility evaluation logic
-            const cards = document.querySelectorAll('.product-card');
-            cards.forEach(card => {
-                if(category === 'all' || card.getAttribute('data-cat') === category) {
-                    card.style.display = 'flex';
-                } else {
-                    card.style.display = 'none';
-                }
-            });
-        }
-
-        function handleFormSubmit(e) {
-            e.preventDefault();
-            alert("Thank you for reaching out to Sharma Stationery Market! Your product request has been sent successfully.");
-            e.target.reset();
-        }
-    </script>
 </body>
 </html>
