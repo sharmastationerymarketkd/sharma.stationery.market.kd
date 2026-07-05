@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Paper & Ink Co. | Premium Stationery</title>
+    <title>Sharma Stationery Mart | Premium Supplies</title>
     <!-- Tailwind CSS for modern, responsive styling -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Alpine.js for interactive components (Cart, Filters, etc.) -->
+    <!-- Alpine.js for interactive components -->
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
@@ -17,29 +17,28 @@
 
     <!-- Top Announcement Bar -->
     <div class="bg-stone-900 text-white text-xs tracking-wider text-center py-2 px-4 font-light">
-        FREE SHIPPING ON ORDERS OVER $50 • NEW JOURNAL COLLECTION OUT NOW
+        SHARMA STATIONERY MARKET • QUALITY SCHOOL & OFFICE SUPPLIES
     </div>
 
     <!-- Navigation Header -->
     <header class="sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b border-gray-100">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
             <!-- Brand Logo -->
-            <a href="#" class="text-2xl font-bold tracking-tight text-stone-800">
-                PAPER<span class="font-light text-stone-500">&INK.</span>
+            <a href="#" class="text-xl font-bold tracking-tight text-stone-800 uppercase">
+                Sharma<span class="font-light text-stone-500"> Stationery Mart</span>
             </a>
 
             <!-- Desktop Menu -->
             <nav class="hidden md:flex space-x-8 text-sm font-medium tracking-wide text-gray-600">
                 <a href="#" class="hover:text-stone-900 transition">Home</a>
-                <a href="#shop" class="hover:text-stone-900 transition">Shop</a>
-                <a href="#about" class="hover:text-stone-900 transition">Our Story</a>
-                <a href="#contact" class="hover:text-stone-900 transition">Contact</a>
+                <a href="#shop" class="hover:text-stone-900 transition">Shop Catalogue</a>
+                <a href="#footer" class="hover:text-stone-900 transition">Contact Us</a>
             </nav>
 
             <!-- Cart Trigger -->
             <button @click="cartOpen = true" class="relative p-2 text-gray-700 hover:text-stone-900 focus:outline-none">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 10.5V6a3.75 3.75 0 1 0-7.5 0v45m11.356-1.993 1.263-12c.07-.665-.45-1.243-1.119-1.243H4.25a1.125 1.125 0 0 0-1.12 1.243l1.264 12A1.125 1.125 0 0 0 5.513 21h12.974c.576 0 1.059-.435 1.119-1.007ZM8.625 10.5a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm7.5 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Z" />
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 10.5V6a3.75 3.75 0 1 0-7.5 0v4v11.356-1.993 1.263-12c.07-.665-.45-1.243-1.119-1.243H4.25a1.125 1.125 0 0 0-1.12 1.243l1.264 12A1.125 1.125 0 0 0 5.513 21h12.974c.576 0 1.059-.435 1.119-1.007ZM8.625 10.5a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm7.5 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Z" />
                 </svg>
                 <span x-text="cartCount" class="absolute top-0 right-0 inline-flex items-center justify-center px-2 py-1 text-xs font-bold leading-none text-white transform translate-x-1/2 -translate-y-1/2 bg-stone-700 rounded-full">0</span>
             </button>
@@ -47,23 +46,26 @@
     </header>
 
     <!-- Hero Section -->
-    <section class="relative bg-stone-100 overflow-hidden py-24 sm:py-32">
+    <section class="relative bg-stone-100 overflow-hidden py-16 sm:py-24">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
             <div class="space-y-6">
-                <span class="text-xs uppercase tracking-widest text-stone-500 font-semibold block">Crafted for Creators</span>
-                <h1 class="text-4xl sm:text-5xl lg:text-6xl font-serif text-stone-900 leading-tight">
-                    Tools that bring your thoughts to paper.
+                <span class="text-xs uppercase tracking-widest text-stone-500 font-semibold block">Official Order Supplier</span>
+                <h1 class="text-4xl sm:text-5xl font-serif text-stone-900 leading-tight">
+                    Your complete neighborhood partner for education and creativity.
                 </h1>
-                <p class="text-lg text-gray-600 max-w-md">
-                    Explore our curated collection of minimalist leather journals, precision fountain pens, and essential desk accessories.
+                <p class="text-base text-gray-600 max-w-md">
+                    Deals in school books, office stationery, premium pens, art kits, and general supplies.
                 </p>
                 <a href="#shop" class="inline-block bg-stone-900 text-white text-sm font-medium px-8 py-3.5 hover:bg-stone-800 transition rounded-none shadow-sm">
-                    Browse Catalogue
+                    Explore Our Stock
                 </a>
             </div>
-            <div class="relative h-72 sm:h-96 md:h-full bg-stone-200 flex items-center justify-center rounded-lg overflow-hidden shadow-sm">
-                <!-- Replace with your actual catalog feature image -->
-                <img src="https://images.unsplash.com/photo-1513542789411-b6a5d4f31634?q=80&w=1000" alt="Stationery" class="object-cover w-full h-full mix-blend-multiply opacity-90">
+            <div class="relative h-64 sm:h-80 md:h-96 bg-stone-200 flex items-center justify-center rounded-lg overflow-hidden shadow-sm">
+                <!-- Fallback background image setup -->
+                <div class="absolute inset-0 bg-stone-900/10 z-10"></div>
+                <div class="w-full h-full flex items-center justify-center bg-stone-300 font-medium text-stone-600">
+                    [Storefront Display Image / Brand Showcase]
+                </div>
             </div>
         </div>
     </section>
@@ -72,8 +74,8 @@
     <main id="shop" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 border-b border-gray-200 pb-5">
             <div>
-                <h2 class="text-3xl font-bold tracking-tight text-gray-900">The Collection</h2>
-                <p class="mt-2 text-sm text-gray-500">Filter through our active catalog of premium supplies.</p>
+                <h2 class="text-3xl font-bold tracking-tight text-gray-900">The Stock Catalogue</h2>
+                <p class="mt-2 text-sm text-gray-500">Filter through our live inventory of books and art materials.</p>
             </div>
             
             <!-- Category Filters -->
@@ -93,10 +95,46 @@
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-y-12 gap-x-8" 
              x-data="{
                 products: [
-                    { id: 1, name: 'Minimalist A5 Leather Journal', price: '$28.00', category: 'Journals', image: 'https://images.unsplash.com/photo-1544816155-12df9643f363?q=80&w=600', specs: '160 Pages, 120 GSM dotted paper, Vegan leather.' },
-                    { id: 2, name: 'Matte Black Fountain Pen', price: '$45.00', category: 'Writing', image: 'https://images.unsplash.com/photo-1583485088034-697b5bc54ccd?q=80&w=600', specs: 'Fine Nib, Includes converter & 3 black ink cartridges.' },
-                    { id: 3, name: 'Concrete Desk Organizer Set', price: '$38.00', category: 'Desk Accessories', image: 'https://images.unsplash.com/photo-1596704017254-9b121068fb31?q=80&w=600', specs: '3-Piece set, raw concrete finish, non-slip base.' },
-                    { id: 4, name: 'Brass Mechanical Pencil', price: '$32.00', category: 'Writing', image: 'https://images.unsplash.com/photo-1562259949-e8e7689d7828?q=80&w=600', specs: '0.5mm lead width, solid raw brass construction.' }
+                    { 
+                        id: 1, 
+                        name: 'Camel & Touch Yuze Brush Pen Combo', 
+                        price: '₹299.00', 
+                        category: 'Writing', 
+                        image: 'image_48129d.png', 
+                        specs: '12 shades dual-tip colorful mark pens alongside Camel premium brush pens.' 
+                    },
+                    { 
+                        id: 2, 
+                        name: 'Apsara Konnect Dual Brush Pens', 
+                        price: '₹145.00', 
+                        category: 'Writing', 
+                        image: 'image_4812c0.png', 
+                        specs: '14 flexible tip shades. 2-in-1 design for art and connecting fun, includes free sketch stencils.' 
+                    },
+                    { 
+                        id: 3, 
+                        name: 'DOMS Art Strokes & Painting Kit Pack', 
+                        price: '₹348.00', 
+                        category: 'Desk Accessories', 
+                        image: 'image_481584.png', 
+                        specs: 'Includes Oil Pastels, Water Color Pens, Colour Cakes, and drawing pencils.' 
+                    },
+                    { 
+                        id: 4, 
+                        name: 'Classmate Designer Notebooks (Set of 4)', 
+                        price: '₹192.00', 
+                        category: 'Journals', 
+                        image: 'image_4815a6.png', 
+                        specs: '172 Pages, 24 x 18 cm dimensions, single-line ruled with interactive cover designs.' 
+                    },
+                    { 
+                        id: 5, 
+                        name: 'Apsara & DOMS Deluxe Student Coloring Pack', 
+                        price: '₹420.00', 
+                        category: 'Desk Accessories', 
+                        image: 'WhatsApp Image 2026-07-03 at 2.24.05 PM.jpeg', 
+                        specs: 'Complete coloring combo featuring sketch pens, brush pens, acrylic colors, and poster paints.' 
+                    }
                 ]
              }">
             
@@ -104,8 +142,9 @@
                 <div x-show="selectedCategory === 'All' || product.category === selectedCategory" 
                      class="group relative flex flex-col justify-between bg-white border border-gray-100 p-4 transition hover:shadow-md">
                     <div>
-                        <div class="aspect-w-1 aspect-h-1 w-full overflow-hidden bg-gray-100 mb-4 h-64">
-                            <img :src="product.image" :alt="product.name" class="h-full w-full object-cover object-center group-hover:scale-102 transition duration-300">
+                        <!-- Image Area -->
+                        <div class="aspect-w-1 aspect-h-1 w-full overflow-hidden bg-gray-100 mb-4 h-64 flex items-center justify-center">
+                            <img :src="product.image" :alt="product.name" class="h-full w-full object-cover object-center group-hover:scale-105 transition duration-300">
                         </div>
                         <span class="text-xs uppercase font-semibold text-stone-400 tracking-wider" x-text="product.category"></span>
                         <h3 class="text-sm font-medium text-gray-900 mt-1" x-text="product.name"></h3>
@@ -133,21 +172,21 @@
                         <div class="flex h-full flex-col overflow-y-scroll bg-white shadow-xl">
                             <div class="flex-1 overflow-y-auto px-4 py-6 sm:px-6">
                                 <div class="flex items-start justify-between">
-                                    <h2 class="text-lg font-medium text-gray-900" id="slide-over-title">Shopping Cart</h2>
+                                    <h2 class="text-lg font-medium text-gray-900" id="slide-over-title">Shopping Cart Inquiry</h2>
                                     <button @click="cartOpen = false" class="text-gray-400 hover:text-gray-500">
-                                        <svg class="h-6 h-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" /></svg>
+                                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" /></svg>
                                     </button>
                                 </div>
                                 <div class="mt-8 text-center text-gray-500 py-12">
-                                    <p x-show="cartCount === 0">Your cart is currently empty.</p>
+                                    <p x-show="cartCount === 0">Your list is currently empty.</p>
                                     <div x-show="cartCount > 0" class="text-left bg-stone-50 p-4 border border-stone-200">
-                                        <p class="text-stone-800 font-medium">Items in Cart: <span x-text="cartCount"></span></p>
-                                        <p class="text-xs text-gray-500 mt-1">This is a dynamic template mockup view.</p>
+                                        <p class="text-stone-800 font-medium">Selected Items: <span x-text="cartCount"></span></p>
+                                        <p class="text-xs text-gray-500 mt-1">Ready to send order snapshot over to the shop management team.</p>
                                     </div>
                                 </div>
                             </div>
                             <div class="border-t border-gray-200 px-4 py-6 sm:px-6">
-                                <button @click="alert('Proceeding to integration gateway!')" class="w-full bg-stone-900 py-3 text-sm font-medium text-white shadow-sm hover:bg-stone-800 transition">Checkout</button>
+                                <button @click="alert('Connecting order overview...')" class="w-full bg-stone-900 py-3 text-sm font-medium text-white shadow-sm hover:bg-stone-800 transition">Place Order Request</button>
                             </div>
                         </div>
                     </div>
@@ -156,10 +195,18 @@
         </div>
     </div>
 
-    <!-- Simple Footer -->
-    <footer class="bg-white border-t border-gray-100 py-12 mt-24">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-xs text-gray-400 tracking-wider">
-            <p>&copy; 2026 PAPER&INK. Crafted with care. All rights reserved.</p>
+    <!-- Simple Contact & Location Footer -->
+    <footer id="footer" class="bg-white border-t border-gray-100 py-12 mt-24">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-2 gap-8 items-center text-sm text-gray-500">
+            <div>
+                <p class="font-bold text-stone-800 mb-1">SHARMA STATIONERY MART</p>
+                <p>Location: Kambal Danga</p>
+                <p class="mt-2">Contact Numbers:</p>
+                <p class="font-mono text-xs text-stone-600">94191-75521, 9622128720, 6005331055, 9797560287</p>
+            </div>
+            <div class="text-left md:text-right text-xs text-gray-400 tracking-wider">
+                <p>&copy; 2026 Sharma Stationery Mart. Hosted via GitHub Pages. All rights reserved.</p>
+            </div>
         </div>
     </footer>
 
