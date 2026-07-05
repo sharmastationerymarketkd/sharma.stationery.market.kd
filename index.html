@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sharma Stationery Mart | Premium Supplies</title>
+    <title>Sharma Stationery Market | Premium Supplies</title>
     <!-- Tailwind CSS for modern, responsive styling -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Alpine.js for interactive components -->
@@ -23,9 +23,12 @@
     <!-- Navigation Header -->
     <header class="sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b border-gray-100">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
-            <!-- Brand Logo -->
-            <a href="#" class="text-xl font-bold tracking-tight text-stone-800 uppercase">
-                Sharma<span class="font-light text-stone-500"> Stationery Mart</span>
+            <!-- Brand Logo Image -->
+            <a href="#" class="flex items-center space-x-3">
+                <img src="Gemini_Generated_Image_2phacz2phacz2pha.png" alt="Sharma Stationery Market Logo" class="h-14 w-14 object-contain rounded-full">
+                <span class="text-xl font-bold tracking-tight text-stone-800 uppercase hidden sm:inline">
+                    Sharma<span class="font-light text-stone-500"> Stationery Market</span>
+                </span>
             </a>
 
             <!-- Desktop Menu -->
@@ -38,7 +41,7 @@
             <!-- Cart Trigger -->
             <button @click="cartOpen = true" class="relative p-2 text-gray-700 hover:text-stone-900 focus:outline-none">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 10.5V6a3.75 3.75 0 1 0-7.5 0v4v11.356-1.993 1.263-12c.07-.665-.45-1.243-1.119-1.243H4.25a1.125 1.125 0 0 0-1.12 1.243l1.264 12A1.125 1.125 0 0 0 5.513 21h12.974c.576 0 1.059-.435 1.119-1.007ZM8.625 10.5a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm7.5 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Z" />
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 10.5V6a3.75 3.75 0 1 0-7.5 0v4.5m11.356-1.993 1.263-12c.07-.665-.45-1.243-1.119-1.243H4.25a1.125 1.125 0 0 0-1.12 1.243l1.264 12A1.125 1.125 0 0 0 5.513 21h12.974c.576 0 1.059-.435 1.119-1.007ZM8.625 10.5a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm7.5 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Z" />
                 </svg>
                 <span x-text="cartCount" class="absolute top-0 right-0 inline-flex items-center justify-center px-2 py-1 text-xs font-bold leading-none text-white transform translate-x-1/2 -translate-y-1/2 bg-stone-700 rounded-full">0</span>
             </button>
@@ -49,23 +52,23 @@
     <section class="relative bg-stone-100 overflow-hidden py-16 sm:py-24">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
             <div class="space-y-6">
-                <span class="text-xs uppercase tracking-widest text-stone-500 font-semibold block">Official Order Supplier</span>
+                <div class="flex items-center space-x-4">
+                    <img src="Gemini_Generated_Image_2phacz2phacz2pha.png" alt="Logo" class="w-16 h-16 object-contain rounded-full shadow-sm">
+                    <span class="text-xs uppercase tracking-widest text-stone-500 font-semibold block">Official Order Supplier</span>
+                </div>
                 <h1 class="text-4xl sm:text-5xl font-serif text-stone-900 leading-tight">
-                    Your complete neighborhood partner for education and creativity.
+                    Your complete partner for education, art, and creativity.
                 </h1>
                 <p class="text-base text-gray-600 max-w-md">
-                    Deals in school books, office stationery, premium pens, art kits, and general supplies.
+                    Deals in school books, office stationery, premium pencils, art kits, and general supply orders.
                 </p>
                 <a href="#shop" class="inline-block bg-stone-900 text-white text-sm font-medium px-8 py-3.5 hover:bg-stone-800 transition rounded-none shadow-sm">
                     Explore Our Stock
                 </a>
             </div>
             <div class="relative h-64 sm:h-80 md:h-96 bg-stone-200 flex items-center justify-center rounded-lg overflow-hidden shadow-sm">
-                <!-- Fallback background image setup -->
-                <div class="absolute inset-0 bg-stone-900/10 z-10"></div>
-                <div class="w-full h-full flex items-center justify-center bg-stone-300 font-medium text-stone-600">
-                    [Storefront Display Image / Brand Showcase]
-                </div>
+                <!-- Using Storefront image for main presentation banner -->
+                <img src="image_6f7e59.png.jpeg" alt="Sharma Stationery Mart Storefront" class="w-full h-full object-cover">
             </div>
         </div>
     </section>
@@ -75,12 +78,12 @@
         <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 border-b border-gray-200 pb-5">
             <div>
                 <h2 class="text-3xl font-bold tracking-tight text-gray-900">The Stock Catalogue</h2>
-                <p class="mt-2 text-sm text-gray-500">Filter through our live inventory of books and art materials.</p>
+                <p class="mt-2 text-sm text-gray-500">Filter through our live inventory of books, pens, and tools.</p>
             </div>
             
             <!-- Category Filters -->
             <div class="mt-4 md:mt-0 flex flex-wrap gap-2">
-                <template x-for="cat in ['All', 'Journals', 'Writing', 'Desk Accessories']">
+                <template x-for="cat in ['All', 'Books & Notebooks', 'Writing Tools', 'Art Sets']">
                     <button 
                         @click="selectedCategory = cat"
                         :class="selectedCategory === cat ? 'bg-stone-900 text-white' : 'bg-white text-gray-600 border border-gray-200 hover:border-gray-400'"
@@ -97,43 +100,66 @@
                 products: [
                     { 
                         id: 1, 
-                        name: 'Camel & Touch Yuze Brush Pen Combo', 
+                        name: 'Camel & Touch Yuze Premium Marker Combo', 
                         price: '₹299.00', 
-                        category: 'Writing', 
-                        image: 'image_48129d.png', 
+                        category: 'Writing Tools', 
+                        isVideo: false,
+                        fileSrc: 'image_48129d.png', 
                         specs: '12 shades dual-tip colorful mark pens alongside Camel premium brush pens.' 
                     },
                     { 
                         id: 2, 
-                        name: 'Apsara Konnect Dual Brush Pens', 
+                        name: 'Apsara Konnect Dual Art Brush Pens', 
                         price: '₹145.00', 
-                        category: 'Writing', 
-                        image: 'image_4812c0.png', 
-                        specs: '14 flexible tip shades. 2-in-1 design for art and connecting fun, includes free sketch stencils.' 
+                        category: 'Writing Tools', 
+                        isVideo: false,
+                        fileSrc: 'image_4812c0.png', 
+                        specs: '14 flexible tip shades. 2-in-1 design for art and connecting fun, includes stencils.' 
                     },
                     { 
                         id: 3, 
                         name: 'DOMS Art Strokes & Painting Kit Pack', 
                         price: '₹348.00', 
-                        category: 'Desk Accessories', 
-                        image: 'image_481584.png', 
-                        specs: 'Includes Oil Pastels, Water Color Pens, Colour Cakes, and drawing pencils.' 
+                        category: 'Art Sets', 
+                        isVideo: false,
+                        fileSrc: 'image_481584.png', 
+                        specs: 'Includes Premium Oil Pastels, Water Color Pens, Colour Cakes, and accessories.' 
                     },
                     { 
                         id: 4, 
-                        name: 'Classmate Designer Notebooks (Set of 4)', 
+                        name: 'Classmate Designer Notebooks (Pack of 4)', 
                         price: '₹192.00', 
-                        category: 'Journals', 
-                        image: 'image_4815a6.png', 
-                        specs: '172 Pages, 24 x 18 cm dimensions, single-line ruled with interactive cover designs.' 
+                        category: 'Books & Notebooks', 
+                        isVideo: false,
+                        fileSrc: 'image_4815a6.png', 
+                        specs: '172 Pages, 24 x 18 cm dimensions, single-line ruled with interactive covers.' 
                     },
-                    { 
-                        id: 5, 
-                        name: 'Apsara & DOMS Deluxe Student Coloring Pack', 
-                        price: '₹420.00', 
-                        category: 'Desk Accessories', 
-                        image: 'WhatsApp Image 2026-07-03 at 2.24.05 PM.jpeg', 
-                        specs: 'Complete coloring combo featuring sketch pens, brush pens, acrylic colors, and poster paints.' 
+                    {
+                        id: 5,
+                        name: 'Apsara & DOMS Student Coloring Pack Collection',
+                        price: '₹420.00',
+                        category: 'Art Sets',
+                        isVideo: true,
+                        fileSrc: 'WhatsApp Video 2026-07-03 at 9.38.49 PM.mp4',
+                        specs: 'Video Showcase: Complete coloring combo featuring sketch pens, brush pens, and poster paints.'
+                    },
+                    {
+                        id: 6,
+                        name: 'DOMS & Apsara Tidy Up Eraser-Sharpener Assortment',
+                        price: '₹95.00',
+                        category: 'Writing Tools',
+                        isVideo: true,
+                        fileSrc: 'WhatsApp Video 2026-07-03 at 7.26.54 PM.mp4',
+                        specs: 'Video Showcase: Features dust-free character erasers and 2-in-1 tidy up sharpener variations.'
+                    },
+                    {
+                        id: 7,
+                        name: 'DOMS Neon & Apsara Extra Dark Graphite Pencil Set',
+                        price: '₹160.00',
+                        category: 'Writing Tools',
+                        isVideo: true,
+                        fileSrc: 'WhatsApp Video 2026-07-03 at 7.12.00 PM.mp4',
+                        specs: 'Video Showcase: Neon super dark pencils, ultimate triangles, and space kids variants.'
                     }
                 ]
              }">
@@ -142,14 +168,19 @@
                 <div x-show="selectedCategory === 'All' || product.category === selectedCategory" 
                      class="group relative flex flex-col justify-between bg-white border border-gray-100 p-4 transition hover:shadow-md">
                     <div>
-                        <!-- Image Area -->
-                        <div class="aspect-w-1 aspect-h-1 w-full overflow-hidden bg-gray-100 mb-4 h-64 flex items-center justify-center">
-                            <img :src="product.image" :alt="product.name" class="h-full w-full object-cover object-center group-hover:scale-105 transition duration-300">
+                        <!-- Media Container (Handles both video and image dynamically) -->
+                        <div class="aspect-w-1 aspect-h-1 w-full overflow-hidden bg-gray-100 mb-4 h-64 flex items-center justify-center relative">
+                            <template x-if="product.isVideo">
+                                <video :src="product.fileSrc" autoplay loop muted playsinline class="h-full w-full object-cover"></video>
+                            </template>
+                            <template x-if="!product.isVideo">
+                                <img :src="product.fileSrc" :alt="product.name" class="h-full w-full object-cover object-center group-hover:scale-105 transition duration-300">
+                            </template>
                         </div>
                         <span class="text-xs uppercase font-semibold text-stone-400 tracking-wider" x-text="product.category"></span>
                         <h3 class="text-sm font-medium text-gray-900 mt-1" x-text="product.name"></h3>
                         <!-- Product Spec Sheet Detail -->
-                        <p class="text-xs text-gray-500 mt-2 line-clamp-2 bg-stone-50 p-2 border-l-2 border-stone-300" x-text="product.specs"></p>
+                        <p class="text-xs text-gray-500 mt-2 line-clamp-3 bg-stone-50 p-2 border-l-2 border-stone-300" x-text="product.specs"></p>
                     </div>
                     <div class="mt-4 pt-4 border-t border-gray-100 flex items-center justify-between">
                         <span class="text-base font-semibold text-stone-900" x-text="product.price"></span>
@@ -181,7 +212,7 @@
                                     <p x-show="cartCount === 0">Your list is currently empty.</p>
                                     <div x-show="cartCount > 0" class="text-left bg-stone-50 p-4 border border-stone-200">
                                         <p class="text-stone-800 font-medium">Selected Items: <span x-text="cartCount"></span></p>
-                                        <p class="text-xs text-gray-500 mt-1">Ready to send order snapshot over to the shop management team.</p>
+                                        <p class="text-xs text-gray-500 mt-1">Ready to compile order snapshot over to the shop management team.</p>
                                     </div>
                                 </div>
                             </div>
@@ -195,17 +226,17 @@
         </div>
     </div>
 
-    <!-- Simple Contact & Location Footer -->
+    <!-- Contact & Location Footer -->
     <footer id="footer" class="bg-white border-t border-gray-100 py-12 mt-24">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-2 gap-8 items-center text-sm text-gray-500">
             <div>
-                <p class="font-bold text-stone-800 mb-1">SHARMA STATIONERY MART</p>
-                <p>Location: Kambal Danga</p>
+                <p class="font-bold text-stone-800 mb-1">SHARMA STATIONERY MARKET</p>
+                <p>Location: Kambal Danga, Udhampur</p>
                 <p class="mt-2">Contact Numbers:</p>
-                <p class="font-mono text-xs text-stone-600">94191-75521, 9622128720, 6005331055, 9797560287</p>
+                <p class="font-mono text-xs text-stone-600">9622128720, 6005331055, 9797560287, 94191-75521</p>
             </div>
             <div class="text-left md:text-right text-xs text-gray-400 tracking-wider">
-                <p>&copy; 2026 Sharma Stationery Mart. Hosted via GitHub Pages. All rights reserved.</p>
+                <p>&copy; 2026 Sharma Stationery Market. Hosted via GitHub Pages. All rights reserved.</p>
             </div>
         </div>
     </footer>
