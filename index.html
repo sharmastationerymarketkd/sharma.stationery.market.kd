@@ -60,15 +60,15 @@
                     Your complete partner for education, art, and creativity.
                 </h1>
                 <p class="text-base text-gray-600 max-w-md">
-                    Deals in school books, office stationery, premium pencils, art kits, and general supply orders.
+                    Deals in school books, office stationery, premium pens, art kits, and general supply orders.
                 </p>
                 <a href="#shop" class="inline-block bg-stone-900 text-white text-sm font-medium px-8 py-3.5 hover:bg-stone-800 transition rounded-none shadow-sm">
                     Explore Our Stock
                 </a>
             </div>
             <div class="relative h-64 sm:h-80 md:h-96 bg-stone-200 flex items-center justify-center rounded-lg overflow-hidden shadow-sm">
-                <!-- Using Storefront image for main presentation banner -->
-                <img src="image_6f7e59.png.jpeg" alt="Sharma Stationery Mart Storefront" class="w-full h-full object-cover">
+                <!-- Storefront image setup -->
+                <img src="image_6f7e59.png.jpeg" alt="Sharma Stationery Market Storefront" class="w-full h-full object-cover">
             </div>
         </div>
     </section>
@@ -83,7 +83,7 @@
             
             <!-- Category Filters -->
             <div class="mt-4 md:mt-0 flex flex-wrap gap-2">
-                <template x-for="cat in ['All', 'Books & Notebooks', 'Writing Tools', 'Art Sets']">
+                <template x-for="cat in ['All', 'Writing Tools', 'Art Sets']">
                     <button 
                         @click="selectedCategory = cat"
                         :class="selectedCategory === cat ? 'bg-stone-900 text-white' : 'bg-white text-gray-600 border border-gray-200 hover:border-gray-400'"
@@ -98,68 +98,32 @@
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-y-12 gap-x-8" 
              x-data="{
                 products: [
-                    { 
-                        id: 1, 
-                        name: 'Camel & Touch Yuze Premium Marker Combo', 
-                        price: '₹299.00', 
-                        category: 'Writing Tools', 
-                        isVideo: false,
-                        fileSrc: 'image_48129d.png', 
-                        specs: '12 shades dual-tip colorful mark pens alongside Camel premium brush pens.' 
-                    },
-                    { 
-                        id: 2, 
-                        name: 'Apsara Konnect Dual Art Brush Pens', 
-                        price: '₹145.00', 
-                        category: 'Writing Tools', 
-                        isVideo: false,
-                        fileSrc: 'image_4812c0.png', 
-                        specs: '14 flexible tip shades. 2-in-1 design for art and connecting fun, includes stencils.' 
-                    },
-                    { 
-                        id: 3, 
-                        name: 'DOMS Art Strokes & Painting Kit Pack', 
-                        price: '₹348.00', 
-                        category: 'Art Sets', 
-                        isVideo: false,
-                        fileSrc: 'image_481584.png', 
-                        specs: 'Includes Premium Oil Pastels, Water Color Pens, Colour Cakes, and accessories.' 
-                    },
-                    { 
-                        id: 4, 
-                        name: 'Classmate Designer Notebooks (Pack of 4)', 
-                        price: '₹192.00', 
-                        category: 'Books & Notebooks', 
-                        isVideo: false,
-                        fileSrc: 'image_4815a6.png', 
-                        specs: '172 Pages, 24 x 18 cm dimensions, single-line ruled with interactive covers.' 
-                    },
                     {
-                        id: 5,
-                        name: 'Apsara & DOMS Student Coloring Pack Collection',
+                        id: 1,
+                        name: 'Apsara & DOMS Deluxe Student Coloring Pack',
                         price: '₹420.00',
                         category: 'Art Sets',
                         isVideo: true,
-                        fileSrc: 'WhatsApp Video 2026-07-03 at 9.38.49 PM.mp4',
-                        specs: 'Video Showcase: Complete coloring combo featuring sketch pens, brush pens, and poster paints.'
+                        fileSrc: 'WhatsApp%20Video%202026-07-03%20at%209.38.49%20PM.mp4',
+                        specs: 'Premium video compilation showcase featuring assorted sketch pens, brush pens, acrylic colors, and poster paints.'
                     },
                     {
-                        id: 6,
-                        name: 'DOMS & Apsara Tidy Up Eraser-Sharpener Assortment',
+                        id: 2,
+                        name: 'DOMS & Apsara Tidy Up Eraser-Sharpener Pack',
                         price: '₹95.00',
                         category: 'Writing Tools',
                         isVideo: true,
-                        fileSrc: 'WhatsApp Video 2026-07-03 at 7.26.54 PM.mp4',
-                        specs: 'Video Showcase: Features dust-free character erasers and 2-in-1 tidy up sharpener variations.'
+                        fileSrc: 'WhatsApp%20Video%202026-07-03%20at%207.26.54%20PM.mp4',
+                        specs: 'Video presentation displaying standard character erasers and dual tidy up tool options.'
                     },
                     {
-                        id: 7,
-                        name: 'DOMS Neon & Apsara Extra Dark Graphite Pencil Set',
+                        id: 3,
+                        name: 'DOMS Neon & Apsara Extra Dark Graphite Pencil Box',
                         price: '₹160.00',
                         category: 'Writing Tools',
                         isVideo: true,
-                        fileSrc: 'WhatsApp Video 2026-07-03 at 7.12.00 PM.mp4',
-                        specs: 'Video Showcase: Neon super dark pencils, ultimate triangles, and space kids variants.'
+                        fileSrc: 'WhatsApp%20Video%202026-07-03%20at%207.12.00%20PM.mp4',
+                        specs: 'Visual collection rundown covering neon sets, space-themed dark pencils, and sharpener additions.'
                     }
                 ]
              }">
@@ -168,13 +132,10 @@
                 <div x-show="selectedCategory === 'All' || product.category === selectedCategory" 
                      class="group relative flex flex-col justify-between bg-white border border-gray-100 p-4 transition hover:shadow-md">
                     <div>
-                        <!-- Media Container (Handles both video and image dynamically) -->
+                        <!-- Dynamic Media Player Window -->
                         <div class="aspect-w-1 aspect-h-1 w-full overflow-hidden bg-gray-100 mb-4 h-64 flex items-center justify-center relative">
                             <template x-if="product.isVideo">
                                 <video :src="product.fileSrc" autoplay loop muted playsinline class="h-full w-full object-cover"></video>
-                            </template>
-                            <template x-if="!product.isVideo">
-                                <img :src="product.fileSrc" :alt="product.name" class="h-full w-full object-cover object-center group-hover:scale-105 transition duration-300">
                             </template>
                         </div>
                         <span class="text-xs uppercase font-semibold text-stone-400 tracking-wider" x-text="product.category"></span>
