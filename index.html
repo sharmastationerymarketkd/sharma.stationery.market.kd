@@ -14,7 +14,7 @@
         }
 
         body {
-            background-color: #f3f5f8;
+            background-color: #f4f6f9;
             color: #2c3e50;
             line-height: 1.6;
         }
@@ -27,9 +27,9 @@
             --layer-shadow: 0 -10px 30px rgba(0, 0, 0, 0.04);
         }
 
-        /* Fixed Navigation Layer */
+        /* Fixed Glass Navigation Header */
         header {
-            background: rgba(255, 255, 255, 0.95);
+            background: rgba(255, 255, 255, 0.96);
             backdrop-filter: blur(10px);
             box-shadow: 0 2px 20px rgba(0,0,0,0.05);
             position: sticky;
@@ -43,19 +43,26 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 15px 20px;
+            padding: 12px 20px;
         }
 
-        .logo h2 {
+        .brand-logo-wrapper {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .logo-text h2 {
             color: var(--primary-color);
-            font-size: 24px;
+            font-size: 22px;
+            line-height: 1.1;
         }
 
-        .logo span {
+        .logo-text span {
             color: var(--accent-color);
-            font-size: 13px;
+            font-size: 12px;
             display: block;
-            letter-spacing: 2px;
+            letter-spacing: 1.5px;
             font-weight: 700;
         }
 
@@ -81,13 +88,13 @@
             box-shadow: 0 4px 10px rgba(13, 71, 161, 0.2);
         }
 
-        /* Layer 1: Hero Section with Full-Bleed Video Background Architecture */
+        /* Layer 1: Parallax Hero Showcase Section */
         .hero-layer {
             position: relative;
             padding: 120px 20px;
             color: white;
             overflow: hidden; 
-            background: #0a2540; /* Fallback frame background */
+            background: #0a2540; 
         }
 
         .hero-video-bg {
@@ -101,6 +108,7 @@
             transform: translate(-50%, -50%);
             z-index: 1; 
             object-fit: cover;
+            opacity: 0.35;
         }
 
         .video-overlay-mask {
@@ -109,7 +117,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(135deg, rgba(10, 37, 64, 0.94) 40%, rgba(13, 71, 161, 0.8));
+            background: linear-gradient(135deg, rgba(10, 37, 64, 0.92) 40%, rgba(13, 71, 161, 0.75));
             z-index: 2; 
         }
 
@@ -173,7 +181,7 @@
             margin-bottom: 10px;
         }
 
-        /* Layer 2: Overlapping Metrics Banner Layer */
+        /* Layer 2: Transition Overlapping Metrics Banner */
         .metrics-layer {
             position: relative;
             background: white;
@@ -197,7 +205,7 @@
             margin-bottom: 5px;
         }
 
-        /* Layer 3: Main Dynamic Product Content Layer */
+        /* Layer 3: Main Catalog Section */
         .content-layer {
             max-width: 1200px;
             margin: 80px auto;
@@ -223,10 +231,9 @@
             margin-top: 5px;
         }
 
-        /* Dynamic Product Card Grids */
         .grid-container {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 30px;
         }
 
@@ -245,10 +252,9 @@
             box-shadow: 0 22px 45px rgba(0, 0, 0, 0.12);
         }
 
-        /* Integrated Video/Image Wrappers inside Catalog Elements */
         .card-img-wrapper {
             width: 100%;
-            height: 180px;
+            height: 200px;
             background: #e2e8f0;
             position: relative;
             overflow: hidden;
@@ -261,6 +267,10 @@
             transition: transform 0.5s ease;
         }
 
+        .layered-card:hover .card-img-wrapper img {
+            transform: scale(1.06);
+        }
+
         .card-info {
             padding: 25px;
             flex-grow: 1;
@@ -270,6 +280,8 @@
             margin-bottom: 12px;
             color: var(--dark-color);
             font-size: 20px;
+            border-bottom: 2px solid #f0f4f8;
+            padding-bottom: 8px;
         }
 
         .card-info ul {
@@ -279,7 +291,7 @@
         .card-info ul li {
             margin-bottom: 8px;
             color: #4a5568;
-            font-size: 15px;
+            font-size: 14px;
             display: flex;
             align-items: center;
         }
@@ -389,16 +401,26 @@
 </head>
 <body>
 
-    <!-- Fixed Glass Navigation Header -->
+    <!-- Fixed Glass Navigation Header with In-line Logo Vector -->
     <header>
         <div class="header-container">
-            <div class="logo">
-                <h2>Sharma Stationery</h2>
-                <span>KAMBAL DANGA MARKET</span>
+            <div class="brand-logo-wrapper">
+                <!-- Inline SVG Corporate Logo Design Element -->
+                <svg width="40" height="40" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M6 22H18C19.1 22 20 21.1 20 20V4C20 2.9 19.1 2 18 2H6C4.9 2 4 2.9 4 4V20C4 21.1 4.9 22 6 22Z" fill="#0d47a1"/>
+                    <path d="M16 2H8V4H16V2Z" fill="#ffb300"/>
+                    <path d="M7 6H17V8H7V6Z" fill="#ffffff"/>
+                    <path d="M7 10H14V12H7V10Z" fill="#ffffff"/>
+                    <circle cx="17" cy="18" r="2" fill="#ffb300"/>
+                </svg>
+                <div class="logo-text">
+                    <h2>Sharma Stationery</h2>
+                    <span>KAMBAL DANGA MARKET</span>
+                </div>
             </div>
             <nav>
                 <a href="#home">Home</a>
-                <a href="#offerings">Our Offerings</a>
+                <a href="#offerings">Our Catalog</a>
                 <a href="#reviews">Reviews</a>
                 <a href="#contact">Contact</a>
             </nav>
@@ -408,24 +430,20 @@
         </div>
     </header>
 
-    <!-- Layer 1: Parallax Hero Showcase Section with Background Video Component -->
+    <!-- Layer 1: Parallax Hero Showcase Section -->
     <section class="hero-layer" id="home">
-        
         <video autoplay loop muted playsinline class="hero-video-bg">
-            <!-- REPLACE LINK BELOW WITH YOUR OWN MAIN BACKGROUND VIDEO MP4 FILE -->
             <source src="https://assets.mixkit.co/videos/preview/mixkit-close-up-of-a-person-writing-in-a-notebook-42340-large.mp4" type="video/mp4">
-            Your browser does not support the video tag.
         </video>
-        
         <div class="video-overlay-mask"></div>
 
         <div class="hero-container">
             <div class="hero-text">
-                <h1>Your Premium Hub for <span>Stationery & Office Supplies</span></h1>
-                <p>Serving schools, corporate environments, and competitive exam aspirants across Kambal Danga. From professional catalog options to massive custom orders—we bring precision to your desk.</p>
+                <h1>Premium Academic & <span>Office Stationery Hub</span></h1>
+                <p>Stocking top global and national standard brands right here in Kambal Danga Market. From trusted classroom gear to corporate wholesale provisioning frameworks.</p>
                 <div class="hero-buttons">
-                    <a href="#offerings" class="btn-primary">Explore Products</a>
-                    <a href="#contact" class="btn-secondary">Get Quick Quote</a>
+                    <a href="#offerings" class="btn-primary">View Products</a>
+                    <a href="#contact" class="btn-secondary">Get Location</a>
                 </div>
             </div>
             <div class="floating-badge-box">
@@ -440,95 +458,149 @@
     <!-- Layer 2: Transition Overlapping Metrics Banner -->
     <section class="metrics-layer">
         <div class="metric-item">
-            <h4>Premium Quality</h4>
-            <p style="color: #64748b; font-size:14px;">Top standard brands only</p>
+            <h4>Authorized Brands</h4>
+            <p style="color: #64748b; font-size:14px;">100% Genuine Supplies</p>
         </div>
         <div class="metric-item">
-            <h4>Bulk Inventory</h4>
-            <p style="color: #64748b; font-size:14px;">Always ready for scaled demands</p>
+            <h4>Bulk Wholesale</h4>
+            <p style="color: #64748b; font-size:14px;">Ready for School & Office scale</p>
         </div>
         <div class="metric-item">
-            <h4>Competitive Rates</h4>
-            <p style="color: #64748b; font-size:14px;">Best retail & wholesale options</p>
+            <h4>Diverse Catalog</h4>
+            <p style="color: #64748b; font-size:14px;">From Pencils to Premium Pens</p>
         </div>
         <div class="metric-item">
-            <h4>Instant Support</h4>
-            <p style="color: #64748b; font-size:14px;">Quick processing & delivery</p>
+            <h4>Instant Fulfillment</h4>
+            <p style="color: #64748b; font-size:14px;">Fast order processing</p>
         </div>
     </section>
 
-    <!-- Layer 3: Product Service Cards (Mix of Images & Mini Showcasing Videos) -->
+    <!-- Layer 3: High Fidelity Specialized Product Grids -->
     <section class="content-layer" id="offerings">
         <div class="section-title">
-            <span>Our Catalog</span>
-            <h2>Comprehensive Product Segments</h2>
+            <span>Our In-Stock Offerings</span>
+            <h2>Explore Premium Stationery Segments</h2>
         </div>
         <div class="grid-container">
             
-            <!-- Card 1 (Uses a Loop Video Segment) -->
+            <!-- Card 1: Notebooks -->
             <div class="layered-card">
                 <div class="card-img-wrapper">
-                    <!-- REPLACE LINK BELOW WITH YOUR OFFICE SEGMENT VIDEO -->
-                    <video autoplay loop muted playsinline>
-                        <source src="https://assets.mixkit.co/videos/preview/mixkit-turning-the-pages-of-a-book-4667-large.mp4" type="video/mp4">
-                    </video>
+                    <img src="https://images.unsplash.com/photo-1531346878377-a5be20888e57?q=80&w=600&auto=format&fit=crop" alt="Classmate Notebooks Inventory">
                 </div>
                 <div class="card-info">
-                    <h3>Office & Corporate</h3>
+                    <h3>Premium Notebooks</h3>
                     <ul>
-                        <li>Premium Copier Paper</li>
-                        <li>Files & Folders Systems</li>
-                        <li>Desk Organizers</li>
+                        <li>Classmate Long Notebooks</li>
+                        <li>Spirals & Academic Registers</li>
+                        <li>Office Diaries & Notepads</li>
                     </ul>
                 </div>
             </div>
 
-            <!-- Card 2 (Uses an Image Grid Layout) -->
+            <!-- Card 2: Gel & Ball Pens -->
             <div class="layered-card">
                 <div class="card-img-wrapper">
-                    <!-- REPLACE WITH SCHOOL STATIONERY IMAGE SOURCE -->
-                    <img src="https://images.unsplash.com/photo-1452860606245-08befc0ff44b?q=80&w=600&auto=format&fit=crop" alt="School Academic Stationery">
+                    <img src="https://images.unsplash.com/photo-1583485088034-697b5bc54ccd?q=80&w=600&auto=format&fit=crop" alt="Trimax, Pilot, Writometer Display">
                 </div>
                 <div class="card-info">
-                    <h3>School & Academic</h3>
+                    <h3>Elite Writing Tools</h3>
                     <ul>
-                        <li>Standard Notebooks & Registers</li>
-                        <li>Premium Pens & Geometry Boxes</li>
-                        <li>Art & Drawing Materials</li>
+                        <li>Reynolds Writometer (Long Write)</li>
+                        <li>Uniball & Liquid Trimax Gel</li>
+                        <li>Pilot V5 / V7 Hi-Tecpoint</li>
                     </ul>
                 </div>
             </div>
 
-            <!-- Card 3 (Uses a Loop Video Segment) -->
+            <!-- Card 3: Luxury Executive Pens -->
             <div class="layered-card">
                 <div class="card-img-wrapper">
-                    <!-- REPLACE LINK BELOW WITH YOUR CUSTOM PRINTING VIDEO -->
+                    <img src="https://images.unsplash.com/photo-1569003339405-ea396a5a8a90?q=80&w=600&auto=format&fit=crop" alt="Parker Luxury Pens Selection">
+                </div>
+                <div class="card-info">
+                    <h3>Executive Pens</h3>
+                    <ul>
+                        <li>Parker Vector Rollerball</li>
+                        <li>Parker Jotter Premium Ball</li>
+                        <li>Luxury Gift Box Ensembles</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Card 4: Graphite Pencils -->
+            <div class="layered-card">
+                <div class="card-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1519751138087-5bf79df62d5b?q=80&w=600&auto=format&fit=crop" alt="Natraj, Apsara and Doms Pencils">
+                </div>
+                <div class="card-info">
+                    <h3>Premium Graphite</h3>
+                    <ul>
+                        <li>Natraj Classic Red & Black</li>
+                        <li>Apsara Platinum Dark Pencils</li>
+                        <li>Doms X1 Extra Super Dark</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Card 5: Geometry Boxes & Mathematical Instruments -->
+            <div class="layered-card">
+                <div class="card-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1414490929659-9a12b7e31907?q=80&w=600&auto=format&fit=crop" alt="Geometry Boxes and Drawing Instruments">
+                </div>
+                <div class="card-info">
+                    <h3>Mathematical Instruments</h3>
+                    <ul>
+                        <li>Camel & Faber-Castell Geometry Sets</li>
+                        <li>Classmate Asteroid Premium Boxes</li>
+                        <li>Protractors, Rulers & Compasses</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Card 6: School Bags & Executive Packs -->
+            <div class="layered-card">
+                <div class="card-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1553062407-98eeb64c6a62?q=80&w=600&auto=format&fit=crop" alt="School Bags and Ergonomic Backpacks">
+                </div>
+                <div class="card-info">
+                    <h3>Ergonomic Bags</h3>
+                    <ul>
+                        <li>Durable School Backpacks</li>
+                        <li>Heavy-Duty College Bags</li>
+                        <li>Tuition & Art Material Pouches</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Card 7: Combo Kits & Art Ensembles -->
+            <div class="layered-card">
+                <div class="card-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1513364776144-60967b0f800f?q=80&w=600&auto=format&fit=crop" alt="Doms Combo Kits and Color Packs">
+                </div>
+                <div class="card-info">
+                    <h3>Comprehensive Art Kits</h3>
+                    <ul>
+                        <li>Doms Smart Drawing Kits</li>
+                        <li>Apsara Complete Scholar Combos</li>
+                        <li>Premium Oil Pastel & Watercolor Sets</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Card 8: Custom Processing & Document Printing -->
+            <div class="layered-card">
+                <div class="card-img-wrapper">
                     <video autoplay loop muted playsinline>
                         <source src="https://assets.mixkit.co/videos/preview/mixkit-top-view-of-a-person-drawing-sketches-on-a-notebook-42337-large.mp4" type="video/mp4">
                     </video>
                 </div>
                 <div class="card-info">
-                    <h3>Printing & Custom</h3>
+                    <h3>Document Operations</h3>
                     <ul>
-                        <li>High-Speed Document Photocopy</li>
-                        <li>Custom Project Binding</li>
-                        <li>Lamination Services</li>
-                    </ul>
-                </div>
-            </div>
-
-            <!-- Card 4 (Uses an Image Grid Layout) -->
-            <div class="layered-card">
-                <div class="card-img-wrapper">
-                    <!-- REPLACE WITH GIFTING IMAGE SOURCE -->
-                    <img src="https://images.unsplash.com/photo-1549465220-1a8b9238cd48?q=80&w=600&auto=format&fit=crop" alt="Corporate Gifts and Kits">
-                </div>
-                <div class="card-info">
-                    <h3>Gifting & Utilities</h3>
-                    <ul>
-                        <li>Executive Diary Sets</li>
-                        <li>Custom Printed Pens</li>
-                        <li>Gift Vouchers & Kits</li>
+                        <li>High Speed Heavy Xerox</li>
+                        <li>Spiral & Soft Project Binding</li>
+                        <li>Quick ID Lamination</li>
                     </ul>
                 </div>
             </div>
@@ -547,7 +619,7 @@
                 <div class="review-card">
                     <div class="stars">★★★★★</div>
                     <p>"Sharma Stationery is our reliable go-to vendor for regular office copier bundles and files. On-time delivery and highly genuine commercial rates every single time."</p>
-                    <div class="reviewer">— Vikram Gupta, Local Business Manager</div>
+                    <div class="reviewer">— Rudhar , Local Resident</div>
                 </div>
                 <div class="review-card">
                     <div class="stars">★★★★★</div>
@@ -569,15 +641,15 @@
                 <h4>Quick Links</h4>
                 <ul>
                     <li><a href="#home">Home</a></li>
-                    <li><a href="#offerings">Our Offerings</a></li>
+                    <li><a href="#offerings">Our Catalog</a></li>
                     <li><a href="#reviews">Reviews</a></li>
                 </ul>
             </div>
             <div class="footer-contact">
-                <h4>Direct Hotlines</h4>
-                <p><strong>📍 Location:</strong> Kambal Danga Market</p>
-                <p><strong>📞 Phone:</strong> +91 XXXXX XXXXX</p>
-                <p><strong>✉️ Email:</strong> sharmastationery@gmail.com</p>
+                <h4>Contact Us </h4>
+                <p><strong>   Location:</strong> Near J&K Bank Sunari Road Kambal Danga </p>
+                <p><strong>📞 Phone:</strong> 6005331055,9622128720,9797560287,9419175521</p>
+                <p><strong>✉️ Email:</strong> sharma.stationery.market.kd@gmail.com</p>
             </div>
         </div>
         <div class="footer-bottom">
